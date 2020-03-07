@@ -6,31 +6,32 @@ class Balise {
   int _id;
   double _latitude;
   double _longitude;
-  String _nomBalise;
-  String _description;
+  String nomBalise;
+  String description;
   int _pointsExploration;
   bool _achievementUnlocked = false;
   String _condition;
- // String _urlImage;
+  String urlImage;
 
 
-  Balise (double pLatitude, double pLongitude, String pNom, String pDescription, [String pCondition = "", int pPoints = 100, Image pImage]) {
+  Balise (double pLatitude, double pLongitude, String pNom, String pDescription, [String pCondition = "", int pPoints = 100, String pImage]) {
     ++createdElements;
     this._id = createdElements;
     this._latitude = pLatitude;
     this._longitude = pLongitude;
-    this._nomBalise = pNom;
-    this._description = pDescription;
+    this.nomBalise = pNom;
+    this.description = pDescription;
 
     this._pointsExploration = pPoints;
     this._condition = pCondition;
+    this.urlImage = pImage;
   }
 
   Marker getMarker() {
     return Marker(
       markerId: MarkerId(this._id.toString()),
       position: LatLng(this._latitude, _longitude),
-      infoWindow: InfoWindow(title: this._nomBalise, snippet: this._description)
+      infoWindow: InfoWindow(title: this.nomBalise, snippet: this.description)
     );
   }
 
