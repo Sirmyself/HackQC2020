@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'favoris.dart';
+import 'decouverte.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -12,10 +13,9 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
   final List<Widget> _children = [
-    PlaceholderWidget(Colors.white),
+    Trending(),
     PlaceholderWidget(Colors.deepOrange),
-    PlaceholderWidget(Colors.green),
-    PlaceholderWidget(Colors.red)
+    PlaceholderWidget(Colors.green)
   ];
 
   void onTabTapped(int index) {
