@@ -8,7 +8,7 @@ class Profil extends StatelessWidget {
       "\"Hi, I am a Freelance developer working for hourly basis. If you wants to contact me to build your product leave a message.\"";
   final String _points = "173";
   final String _lieuVisites = "24";
-  final String _sucess = "5";
+  final String _sucess = "1";
 
   Widget _buildCoverImage(Size screenSize) {
     return Container(
@@ -104,7 +104,42 @@ class Profil extends StatelessWidget {
     );
   }
 
-  Widget _buildStatContainer() {
+  Widget _buildStatItemClickable(String label, String count, BuildContext
+      context) {
+    TextStyle _statLabelTextStyle = TextStyle(
+      fontFamily: 'Roboto',
+      color: Colors.black,
+      fontSize: 16.0,
+      fontWeight: FontWeight.w200,
+    );
+
+    TextStyle _statCountTextStyle = TextStyle(
+      color: Colors.black54,
+      fontSize: 24.0,
+      fontWeight: FontWeight.bold,
+    );
+
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        InkWell(
+          onTap: () {
+            Navigator.of(context).pushNamed('/succes');
+          },
+          child: Text(
+            count,
+            style: _statCountTextStyle,
+          ),
+        ),
+        Text(
+          label,
+          style: _statLabelTextStyle,
+        ),
+      ],
+    );
+  }
+
+  Widget _buildStatContainer(BuildContext context) {
     return Container(
       height: 60.0,
       margin: EdgeInsets.only(top: 8.0),
@@ -116,7 +151,7 @@ class Profil extends StatelessWidget {
         children: <Widget>[
           _buildStatItem("Points", _points),
           _buildStatItem("Lieux visités", _lieuVisites),
-          _buildStatItem("Succès", _sucess),
+          _buildStatItemClickable("Succès", _sucess, context),
         ],
       ),
     );
@@ -238,7 +273,7 @@ class Profil extends StatelessWidget {
                   _buildProfileImage(),
                   _buildFullName(),
                   _buildStatus(context),
-                  _buildStatContainer(),
+                  _buildStatContainer(context),
                   _buildBio(context),
                   _buildSeparator(screenSize),
                   SizedBox(height: 10.0),

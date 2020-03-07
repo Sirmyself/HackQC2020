@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:parcoursa/BottomNavigation.dart';
 
 
 class Offre extends StatefulWidget {
@@ -11,7 +10,7 @@ class Offre extends StatefulWidget {
 
 Widget _myListView(BuildContext context) {
   final titres = ['Aux Bienfaits', 'Cantine Le Rallye'];
-  final soustitres = ['Obtenez un (1) bébé cornet à l\'achat d''un sundae.', 'Obtenez un hot-dog gratuitement à l\'achat d''un trio poutine'];
+  final soustitres = ['Obtenez un (1) bébé cornet à l\'achat d\'un sundae.', 'Obtenez un (1) hot-dog gratuitement à l\'achat d\'un trio poutine'];
 
   final icons = [Icons.monetization_on, Icons.monetization_on];
 
