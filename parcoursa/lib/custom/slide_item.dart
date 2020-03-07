@@ -7,6 +7,7 @@ class SlideItem extends StatefulWidget {
   final String title;
   final String address;
   final String rating;
+  final int nbrBalise;
 
   SlideItem({
     Key key,
