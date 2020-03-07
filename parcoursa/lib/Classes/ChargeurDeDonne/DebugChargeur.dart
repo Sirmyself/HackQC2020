@@ -30,6 +30,7 @@ class DebugChargeur implements IChargeDonnees {
     balises.add(new Balise(48.4407761937531, -68.5361009245298, "L'allé des sculptures - Couple enjoué", "Attrait touristique et point d'intérêt!!", "", 100, "assets/statue_4.jpg"));
     balises.add(new Balise(48.4404612849461, -68.5362866253372, "L'allé des sculptures - La rencontre sous-marine", "Attrait touristique et point d'intérêt!! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a mi sed.", "", 1000, "assets/statue_2.jpg"));
     balises.add(new Balise(48.4406295680677, -68.5361828950075, "L'allé des sculptures - Jeu aquatique", "Attrait touristique et point d'intérêt!! Sed pharetra nulla sit,consectetur adipiscing elit.", "", 500, "assets/statue_3.jpg"));
+
     
     return balises;
   }

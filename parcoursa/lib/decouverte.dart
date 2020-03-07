@@ -3,7 +3,6 @@ import 'package:parcoursa/profil.dart';
 import 'categories.dart';
 import 'customNavTransition.dart';
 import 'parcours.dart';
-import 'custom/trending_item.dart';
 import 'custom/slide_item.dart';
 import 'dart:ui';
 
@@ -52,7 +51,7 @@ class _TrendingState extends State<Trending> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
-                  "Trending Parcours",
+                  "Parcours populaires",
                   style: TextStyle(
                     fontSize: 23,
                     fontWeight: FontWeight.w800,
@@ -60,7 +59,7 @@ class _TrendingState extends State<Trending> {
                 ),
                 FlatButton(
                   child: Text(
-                    "See all (43)",
+                    "Voir tous (46)",
                     style: TextStyle(
                      fontSize: 22,
                      fontWeight: FontWeight.w800,
@@ -101,6 +100,7 @@ class _TrendingState extends State<Trending> {
                       title: parcour["title"],
                       address: parcour["address"],
                       rating: parcour["rating"],
+                      nbrBalise: parcour["nbrBalise"],
                     ),
                   );
                 },
@@ -119,7 +119,7 @@ class _TrendingState extends State<Trending> {
                 ),
                 FlatButton(
                   child: Text(
-                    "See all (43)",
+                    "Voir tous  (13)",
                     style: TextStyle(
                      fontSize: 22,
                      fontWeight: FontWeight.w800,

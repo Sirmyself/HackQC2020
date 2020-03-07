@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parcoursa/coupons.dart';
 import 'home.dart';
 import 'offre.dart';
 
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => Home(),
         '/offre': (context) => Offre(),
+        '/coupons': (context) => Coupons(),
       },
     );
   }

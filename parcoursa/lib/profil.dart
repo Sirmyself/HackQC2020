@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 
 class Profil extends StatelessWidget {
 
-final String _fullName = "Jérôme Beaulieu";
-final String _status = "Niveau: Débutant";
-final String _bio =
-    "\"Hi, I am a Freelance developer working for hourly basis. If you wants to contact me to build your product leave a message.\"";
-final String _points = "173";
-final String _lieuVisites = "24";
-final String _sucess = "5";
+  final String _fullName = "Jérôme Beaulieu";
+  final String _status = "Niveau: Débutant";
+  final String _bio =
+      "\"Hi, I am a Freelance developer working for hourly basis. If you wants to contact me to build your product leave a message.\"";
+  final String _points = "173";
+  final String _lieuVisites = "24";
+  final String _sucess = "5";
 
-Widget _buildCoverImage(Size screenSize) {
+  Widget _buildCoverImage(Size screenSize) {
     return Container(
       height: screenSize.height / 3.2,
       decoration: BoxDecoration(
@@ -169,8 +169,8 @@ Widget _buildCoverImage(Size screenSize) {
         children: <Widget>[
           Expanded(
             child: InkWell(
-              onTap: () { 
-                Navigator.pushNamed(context, '/offre');
+              onTap: () {
+                Navigator.of(context).pushNamed('/offre');
               },
               child: Container(
                 height: 40.0,
@@ -194,7 +194,9 @@ Widget _buildCoverImage(Size screenSize) {
           SizedBox(width: 10.0),
           Expanded(
             child: InkWell(
-              onTap: () => print("Message"),
+              onTap: () {
+                Navigator.of(context).pushNamed('/coupons');
+              },
               child: Container(
                 height: 40.0,
                 decoration: BoxDecoration(
@@ -208,7 +210,7 @@ Widget _buildCoverImage(Size screenSize) {
                       style: TextStyle(
                         fontWeight: FontWeight.w700,
                         fontSize: 18,
-                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -221,9 +223,9 @@ Widget _buildCoverImage(Size screenSize) {
   }
 
 
- @override
- Widget build(BuildContext context) {
-   Size screenSize = MediaQuery.of(context).size;
+  @override
+  Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(
         children: <Widget>[
