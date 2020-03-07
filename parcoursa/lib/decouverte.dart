@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parcoursa/profil.dart';
 import 'categories.dart';
 import 'parcours.dart';
 import 'custom/trending_item.dart';
@@ -8,6 +9,16 @@ import 'dart:ui';
 class Trending extends StatefulWidget {
   @override
   _TrendingState createState() => _TrendingState();
+}
+
+Widget _buildContainer() {
+  return Material(
+    color: Colors.blue,
+    child: InkWell(
+      onTap: () => print("Container pressed"), // handle your onTap here
+      child: Container(height: 200, width: 200),
+    ),
+  );
 }
 
 class _TrendingState extends State<Trending> {
@@ -59,7 +70,7 @@ class _TrendingState extends State<Trending> {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (BuildContext context) {
-                          return Trending();
+                          return Profil();
                         },
                       ),
                     );

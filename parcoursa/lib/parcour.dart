@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:parcoursa/parcour.dart';
 
-class SlideItem extends StatefulWidget {
+class Parcour extends StatefulWidget {
   final String img;
   final String title;
   final String address;
   final String rating;
 
-  SlideItem({
+  Parcour({
     Key key,
     @required this.img,
     @required this.title,
@@ -17,24 +16,13 @@ class SlideItem extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _SlideItemState createState() => _SlideItemState();
+  _ParcourState createState() => _ParcourState();
 }
 
-class _SlideItemState extends State<SlideItem> {
+class _ParcourState extends State<Parcour>{
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      // When the child is tapped, show a snackbar.
-      onTap: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (BuildContext context) {
-              return Parcour(img: "${widget.img}", address: "${widget.address}", title: "${widget.title}", rating: "${widget.rating}");
-            },
-          ),
-        );
-      },
-      child: Padding(
+      return Padding(
         padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
         child: Container(
           height: MediaQuery.of(context).size.height / 2.9,
@@ -125,7 +113,6 @@ class _SlideItemState extends State<SlideItem> {
             ),
           ),
         ),
-      ),
-    );
+      );
   }
 }
