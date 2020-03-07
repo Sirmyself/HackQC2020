@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:line_icons/line_icons.dart';
 import 'favoris.dart';
 import 'decouverte.dart';
-=======
-import 'package:parcoursa/BottomNavigation.dart';
->>>>>>> d64873bb4f90b0eefb3330fa0df15fcdec7701bb
 
 class Home extends StatefulWidget {
   @override
@@ -15,7 +11,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-<<<<<<< HEAD
   int _currentIndex = 0;
   final List<Widget> _children = [
     Trending(),
@@ -28,13 +23,29 @@ class _HomeState extends State<Home> {
       _currentIndex = index;
     });
   }
-=======
->>>>>>> d64873bb4f90b0eefb3330fa0df15fcdec7701bb
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BottomNavagation(),
+      body: _children[_currentIndex], // new
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: onTabTapped, // new
+        currentIndex: _currentIndex, // new
+        items: [
+          BottomNavigationBarItem(
+            icon: new Icon(LineIcons.globe),
+            title: new Text('Découverte'),
+          ),
+          BottomNavigationBarItem(
+            icon: new Icon(LineIcons.heart_o),
+            title: new Text('Favoris'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(LineIcons.user),
+            title: Text('Profil'),
+          )
+        ],
+      ),
     );
   }
 }
