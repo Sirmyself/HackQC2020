@@ -6,4 +6,5 @@ abstract class IChargeDonnees {
 
   List<Balise> getBalisesPublic();
   List<Balise> getBalisesArt();
+  List<Balise> getBalisesPatrimoine();
 }
