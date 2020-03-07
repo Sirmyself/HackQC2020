@@ -49,4 +49,14 @@ class Balise {
 
     return retVal;
   }
+
+  double getLatitude()
+  {
+    return _latitude;
+  }
+
+  double getLongitude()
+  {
+    return _longitude;
+  }
 }
