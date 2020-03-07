@@ -52,7 +52,7 @@ class _TrendingState extends State<Trending> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
-                  "Trending Parcours",
+                  "Parcours populaires",
                   style: TextStyle(
                     fontSize: 23,
                     fontWeight: FontWeight.w800,
@@ -60,7 +60,7 @@ class _TrendingState extends State<Trending> {
                 ),
                 FlatButton(
                   child: Text(
-                    "See all (43)",
+                    "Voir tous (46)",
                     style: TextStyle(
                      fontSize: 22,
                      fontWeight: FontWeight.w800,
@@ -119,7 +119,7 @@ class _TrendingState extends State<Trending> {
                 ),
                 FlatButton(
                   child: Text(
-                    "See all (43)",
+                    "Voir tous  (13)",
                     style: TextStyle(
                      fontSize: 22,
                      fontWeight: FontWeight.w800,

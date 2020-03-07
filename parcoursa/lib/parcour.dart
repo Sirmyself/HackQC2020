@@ -22,7 +22,10 @@ class Parcour extends StatefulWidget {
 class _ParcourState extends State<Parcour>{
   @override
   Widget build(BuildContext context) {
-      return Padding(
+      return Container(
+        height: MediaQuery.of(context).size.height / 2.4,
+        width: MediaQuery.of(context).size.width,
+        child: Padding(
         padding: EdgeInsets.only(top: 30.0, left: 10.0, right: 10.0),
         child: Container(
           height: MediaQuery.of(context).size.height / 2.9,
@@ -113,6 +116,7 @@ class _ParcourState extends State<Parcour>{
             ),
           ),
         ),
-      );
+      ),
+    );
   }
 }
