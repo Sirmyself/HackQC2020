@@ -170,7 +170,7 @@ Widget _buildCoverImage(Size screenSize) {
           Expanded(
             child: InkWell(
               onTap: () { 
-                Navigator.pushNamed(context, '/offre');
+                Navigator.of(context).pushNamed('/offre');
               },
               child: Container(
                 height: 40.0,
