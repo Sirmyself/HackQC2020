@@ -173,10 +173,11 @@ class Profil extends StatelessWidget {
                 Navigator.of(context).pushNamed('/offre');
               },
               child: Container(
-                height: 40.0,
+                height: 45.0,
                 decoration: BoxDecoration(
                   border: Border.all(),
                   color: Color(0xFF404A5C),
+                  borderRadius: BorderRadius.circular(10.0)
                 ),
                 child: Center(
                   child: Text(
@@ -198,9 +199,10 @@ class Profil extends StatelessWidget {
                 Navigator.of(context).pushNamed('/coupons');
               },
               child: Container(
-                height: 40.0,
+                height: 45.0,
                 decoration: BoxDecoration(
                   border: Border.all(),
+                  borderRadius: BorderRadius.circular(10.0)
                 ),
                 child: Center(
                   child: Padding(

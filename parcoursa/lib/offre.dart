@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parcoursa/BottomNavigation.dart';
+import 'dart:math';
 
 
 class Offre extends StatefulWidget {
@@ -9,41 +10,15 @@ class Offre extends StatefulWidget {
   }
 }
 
-// Widget _myListView(BuildContext context) {
-//   final titres = ['Aux Bienfaits', 'Cantine Le Rallye'];
-//   final soustitres = ['Obtenez un (1) bébé cornet à l\'achat d''un sundae.', 'Obtenez un hot-dog gratuitement à l\'achat d''un trio poutine'];
-
-//   final icons = [Icons.monetization_on, Icons.monetization_on];
-
-//   return ListView.builder(
-//     itemCount: titres.length,
-//     itemBuilder: (context, index) {
-//       return Card( //                           <-- Card widget
-//         child: ListTile(
-//           leading: Icon(icons[index], size: 30,),
-//           title: Text(titres[index], style: TextStyle(fontSize: 25)),
-//           trailing: IconButton(icon: Icon(Icons.add_circle, size: 30), onPressed: () {
-//             setState(() {
-//               titres.removeAt(index);
-//               soustitres.removeAt(index);
-//               icons.removeAt(index);
-//             });
-//           }),
-//           subtitle: Text(soustitres[index], style: TextStyle(fontSize: 16))
-//         ),
-//       );
-//     },
-//   );
-// }
-
 class _OffreState extends State<Offre> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Padding(
-      padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
+      body: Padding(
+      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
       child: Stack(
         children: <Widget>[
+          BottomNavagation(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
@@ -79,7 +54,7 @@ class BodyLayout extends StatefulWidget {
 class BodyLayoutState extends State<BodyLayout> {
 
   final titres = ['Aux Bienfaits', 'Cantine Le Rallye'];
-  final soustitres = ['Obtenez un (1) bébé cornet à l\'achat d''un sundae.', 'Obtenez un hot-dog gratuitement à l\'achat d''un trio poutine'];
+  final soustitres = ['Obtenez un (1) bébé cornet à l\'achat d''un sundae.', 'Obtenez un hot-dog gratuitement à l\'achat d\'un trio poutine'];
   final icons = [Icons.monetization_on, Icons.monetization_on];
 
   @override
@@ -92,14 +67,15 @@ class BodyLayoutState extends State<BodyLayout> {
       itemCount: titres.length,
       itemBuilder: (context, index) {  
         return Card( //                           <-- Card widget
+          shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+            elevation: 3.0,
           child: ListTile(
-            leading: Icon(icons[index], size: 30,),
-            title: Text(titres[index], style: TextStyle(fontSize: 25)),
+            //leading: FlatButton.icon(onPressed: null, icon: Icon(icons[index], size: 30, color: Color(0xFF404A5C),), label: Text('13300')) ,
+            leading: CircleAvatar(child: Text(chiffreRandom().toString()),),
+            title: Text(titres[index], style: TextStyle(fontSize: 22)),
+            subtitle: Text(soustitres[index], style: TextStyle(fontSize: 14)),
             trailing: IconButton(icon: Icon(Icons.add_circle, size: 30), onPressed: () {
-              // setState(() {
-              //   titres.removeAt(index);
-              //   soustitres.removeAt(index);
-              //   icons.removeAt(index);
               showDialog(
                 context: context,
                 builder: (BuildContext context) {
@@ -157,11 +133,15 @@ class BodyLayoutState extends State<BodyLayout> {
                   );
               });
             }),
-            subtitle: Text(soustitres[index], style: TextStyle(fontSize: 16))
           ),
         );
       },
     );
   } 
 }
+
+int chiffreRandom() {
+  var randomizer = new Random(); // can get a seed as a parameter
+  return randomizer.nextInt(10000);
+} 
 
