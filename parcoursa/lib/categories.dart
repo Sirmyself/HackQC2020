@@ -3,33 +3,39 @@ import 'package:flutter/material.dart';
 
 List categories = [
   {
-    "name": "Italian",
+    "name": "Arts",
     "color1": Color.fromARGB(100, 0, 0, 0),
     "color2": Color.fromARGB(100, 0, 0, 0),
-    "img": "assets/food1.jpeg"
+    "img": "assets/categorie1.jpg"
   },
   {
-    "name": "Chinese",
+    "name": "Parcs",
     "color1": Color.fromARGB(100, 0, 0, 0),
     "color2": Color.fromARGB(100, 0, 0, 0),
-    "img": "assets/food2.jpeg"
+    "img": "assets/categorie2.jpg"
   },
   {
-    "name": "Nigerian",
+    "name": "Nouveautés",
     "color1": Color.fromARGB(100, 0, 0, 0),
     "color2": Color.fromARGB(100, 0, 0, 0),
-    "img": "assets/food3.jpeg"
+    "img": "assets/categorie3.jpg"
   },
   {
-    "name": "Spanish",
+    "name": "Patrimoines",
     "color1": Color.fromARGB(100, 0, 0, 0),
     "color2": Color.fromARGB(100, 0, 0, 0),
-    "img": "assets/food4.jpeg"
+    "img": "assets/categorie4.jpg"
   },
   {
-    "name": "Mexican",
+    "name": "Attraits",
     "color1": Color.fromARGB(100, 0, 0, 0),
     "color2": Color.fromARGB(100, 0, 0, 0),
-    "img": "assets/food5.jpeg"
+    "img": "assets/categorie5.jpg"
+  },
+  {
+    "name": "Familles",
+    "color1": Color.fromARGB(100, 0, 0, 0),
+    "color2": Color.fromARGB(100, 0, 0, 0),
+    "img": "assets/categorie6.jpg"
   },
 ];
