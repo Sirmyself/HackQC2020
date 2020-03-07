@@ -180,7 +180,7 @@ class Profil extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    "Offre",
+                    "Offres",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w700,

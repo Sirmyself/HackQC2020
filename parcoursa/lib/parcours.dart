@@ -1,19 +1,25 @@
-// import ''
+import 'package:parcoursa/Classes/ChargeurDeDonne/DebugChargeur.dart';
+import 'package:parcoursa/parcour.dart';
+
+var debug = DebugChargeur();
+var public = debug.getBalisesPublic().first;
+var art = debug.getBalisesArt().first;
+
 
 List parcours = [
   {
-    "img": "assets/maison.jpg",
-    "title": "Unhappy Kathy",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
+    "img": public.urlImage,
+    "title": public.nomBalise,
+    "address": public.description,
     "rating": "56",
-    "nbrBalise": 6
+    "nbrBalise": debug.getBalisesPublic().length
   },
   {
-    "img": "assets/statue_2.jpg",
-    "title": "Uncle Boons",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
+    "img": art.urlImage,
+    "title": art.nomBalise,
+    "address": art.description,
     "rating": "97",
-    "nbrBalise": 7
+    "nbrBalise": debug.getBalisesArt().length
   },
   {
     "img": "assets/statue_3.jpg",
