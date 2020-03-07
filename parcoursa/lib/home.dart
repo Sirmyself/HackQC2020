@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:parcoursa/profil.dart';
 import 'favoris.dart';
 import 'decouverte.dart';
 
@@ -15,7 +16,7 @@ class _HomeState extends State<Home> {
   final List<Widget> _children = [
     Trending(),
     PlaceholderWidget(Colors.deepOrange),
-    PlaceholderWidget(Colors.green)
+    Profil()
   ];
 
   void onTabTapped(int index) {
