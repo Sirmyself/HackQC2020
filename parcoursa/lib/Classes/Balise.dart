@@ -14,7 +14,7 @@ class Balise {
  // String _urlImage;
 
 
-  Balise (double pLatitude, double pLongitude, String pNom, String pDescription, [Image pImage, int pPoints = 100, String pCondition = ""]) {
+  Balise (double pLatitude, double pLongitude, String pNom, String pDescription, [String pCondition = "", int pPoints = 100, Image pImage]) {
     ++createdElements;
     this._id = createdElements;
     this._latitude = pLatitude;
