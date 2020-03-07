@@ -35,6 +35,10 @@ class Balise {
     );
   }
 
+  LatLng getLatLng() {
+    return LatLng(this._latitude, this._longitude);
+  }
+
   int verifierAchievement(String pTentative) {
     int retVal = 0;
 

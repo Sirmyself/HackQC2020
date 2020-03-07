@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:parcoursa/Classes/ChargeurDeDonne/DebugChargeur.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:google_map_polyline/google_map_polyline.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:parcoursa/Interfaces/IChargeDonnees.dart';
 
@@ -29,7 +30,9 @@ class Parcour extends StatefulWidget {
 class _ParcourState extends State<Parcour> {
   IChargeDonnees _charger = DebugChargeur();
   Completer<GoogleMapController> _controller = Completer();
- 
+  GoogleMap map;
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -176,16 +179,18 @@ class _ParcourState extends State<Parcour> {
                   child: Container(
                     height: MediaQuery.of(context).size.height / 2.4,
                     width: MediaQuery.of(context).size.width / 1.2,
-                    child: GoogleMap(
+                    child: map = GoogleMap(
                         mapType: MapType.normal,
                         initialCameraPosition: CameraPosition(
                           target: LatLng(48.449308, -68.525349),
                           zoom: 14.4746,
                         ),
-                        onMapCreated: (GoogleMapController controller) {
+                          onMapCreated: (GoogleMapController controller) {
                           _controller.complete(controller);
+                          // fuck();
                         },
                         markers: meMarker(),
+                        polylines: meRoutes(),
                         ),
                   ),
                 ),
@@ -204,6 +209,41 @@ class _ParcourState extends State<Parcour> {
         toutMarker.add(marker.getMarker());
       }
       return toutMarker;
+  }
+
+  Set<Polyline> meRoutes(){
+    Set<Polyline> touteRoutes = Set<Polyline>();
+    List<LatLng> pointsTest = List<LatLng>();
+    pointsTest.add(LatLng(48.43451,-68.51899));
+    pointsTest.add(LatLng(48.43365,-68.52023));
+    pointsTest.add(LatLng(48.43392,-68.52066));
+    pointsTest.add(LatLng(48.43352,-68.52127));
+    pointsTest.add(LatLng(48.43409,-68.52218));
+    touteRoutes.add(Polyline(
+      polylineId: PolylineId("route"),
+      geodesic: true,
+      points: pointsTest,
+      width: 7,
+      color: Colors.blue
+    ));
+    return touteRoutes;
+  }
+
+  void fuck() async{
+    var listMarker = _charger.getBalisesPublic();
+    GoogleMapPolyline polylineMaker = GoogleMapPolyline(apiKey: "AIzaSyBrnMUAS_68i_fPxTaumVgbjJpWn-jBgI4");
+    var latlngPoly = await polylineMaker.getCoordinatesWithLocation(origin: listMarker[0].getLatLng(), destination: listMarker[1].getLatLng(), mode: RouteMode.walking);
+    String fuckEverthing = "";
+    for (var latlng in latlngPoly) {
+      fuckEverthing = fuckEverthing + "Lat " + latlng.latitude.toString() + " Lng " + latlng.longitude.toString() + "   "; 
+    }
+    throw Exception(fuckEverthing);
+    Polyline route = new Polyline(
+      polylineId: PolylineId("null"),
+      points: latlngPoly,
+      width: 20,
+      color: Colors.blue);
+    map.polylines.add(route);
   }
 
 }
