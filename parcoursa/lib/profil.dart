@@ -180,7 +180,7 @@ Widget _buildCoverImage(Size screenSize) {
                 ),
                 child: Center(
                   child: Text(
-                    "Offre",
+                    "Offres",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
