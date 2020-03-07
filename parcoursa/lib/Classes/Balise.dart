@@ -11,10 +11,10 @@ class Balise {
   int _pointsExploration;
   bool _achievementUnlocked = false;
   String _condition;
- // String _urlImage;
+  String _urlImage;
 
 
-  Balise (double pLatitude, double pLongitude, String pNom, String pDescription, [String pCondition = "", int pPoints = 100, Image pImage]) {
+  Balise (double pLatitude, double pLongitude, String pNom, String pDescription, [String pCondition = "", int pPoints = 100, String pImage]) {
     ++createdElements;
     this._id = createdElements;
     this._latitude = pLatitude;
@@ -24,6 +24,7 @@ class Balise {
 
     this._pointsExploration = pPoints;
     this._condition = pCondition;
+    this._urlImage = pImage;
   }
 
   Marker getMarker() {
