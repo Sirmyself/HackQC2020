@@ -30,13 +30,15 @@ class DebugChargeur implements IChargeDonnees {
     balises.add(new Balise(48.4407761937531, -68.5361009245298, "L'allé des sculptures - Couple enjoué", "Attrait touristique et point d'intérêt!!"));
     balises.add(new Balise(48.4404612849461, -68.5362866253372, "L'allé des sculptures - La rencontre sous-marine", "Attrait touristique et point d'intérêt!! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a mi sed."));
     balises.add(new Balise(48.4406295680677, -68.5361828950075, "L'allé des sculptures - Jeu aquatique", "Attrait touristique et point d'intérêt!! Sed pharetra nulla sit,consectetur adipiscing elit."));
-    return null;
+    
+    return balises;
   }
 
   @override
-  List<Balise> getBalisesPatrimoine() {
-    // TODO: implement getBalisesPatrimoine
-    return null;
+  List<Balise> getBalisesParc() {
+    List<Balise> balises = new List<Balise>();
+
+    return balises;
   }
 
   //from https://www.donneesquebec.ca/recherche/fr/dataset/sites-patrimoine/resource/a5f938ce-a332-411a-b8d6-ce031b52897d
