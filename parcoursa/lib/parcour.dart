@@ -1,5 +1,10 @@
+import 'dart:async';
+
+import 'package:parcoursa/Classes/ChargeurDeDonne/DebugChargeur.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:parcoursa/Interfaces/IChargeDonnees.dart';
 
 class Parcour extends StatefulWidget {
   final String img;
@@ -22,6 +27,9 @@ class Parcour extends StatefulWidget {
 }
 
 class _ParcourState extends State<Parcour> {
+  IChargeDonnees _charger = DebugChargeur();
+  Completer<GoogleMapController> _controller = Completer();
+ 
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -130,13 +138,10 @@ class _ParcourState extends State<Parcour> {
                         ),
                         Text(
                           widget.nbrBalise.toString(),
-                          style: TextStyle(
-                            fontSize: 55,
-                            color: Colors.blue
-                          ),
+                          style: TextStyle(fontSize: 55, color: Colors.blue),
                         )
                       ],
-                    ) ,
+                    ),
                   ),
                 ),
                 Card(
@@ -145,7 +150,6 @@ class _ParcourState extends State<Parcour> {
                       borderRadius: BorderRadius.circular(25.0)),
                   color: Colors.greenAccent,
                   child: Container(
-
                     height: MediaQuery.of(context).size.width / 3,
                     width: MediaQuery.of(context).size.width / 3,
                     child: Row(
@@ -154,9 +158,35 @@ class _ParcourState extends State<Parcour> {
                         Icon(
                           LineIcons.play_circle,
                           color: Colors.white,
-                          size: 65,),
+                          size: 65,
+                        ),
                       ],
                     ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Card(
+                  elevation: 3.0,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0)),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height / 2.4,
+                    width: MediaQuery.of(context).size.width / 1.2,
+                    child: GoogleMap(
+                        mapType: MapType.normal,
+                        initialCameraPosition: CameraPosition(
+                          target: LatLng(48.449308, -68.525349),
+                          zoom: 14.4746,
+                        ),
+                        onMapCreated: (GoogleMapController controller) {
+                          _controller.complete(controller);
+                        },
+                        markers: meMarker(),
+                        ),
                   ),
                 ),
               ],
@@ -166,4 +196,15 @@ class _ParcourState extends State<Parcour> {
       ),
     );
   }
+
+  Set<Marker> meMarker() {
+      var listMarker = _charger.getBalisesPublic();
+      Set<Marker> toutMarker = Set<Marker>();
+      for (var marker in listMarker) {
+        toutMarker.add(marker.getMarker());
+      }
+      return toutMarker;
+  }
+
 }
+

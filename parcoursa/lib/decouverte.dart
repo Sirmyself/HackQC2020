@@ -53,7 +53,7 @@ class _TrendingState extends State<Trending> {
                 Text(
                   "Parcours populaires",
                   style: TextStyle(
-                    fontSize: 23,
+                    fontSize: 20,
                     fontWeight: FontWeight.w800,
                   ),
                 ),
@@ -61,7 +61,7 @@ class _TrendingState extends State<Trending> {
                   child: Text(
                     "Voir tous (46)",
                     style: TextStyle(
-                     fontSize: 22,
+                     fontSize: 20,
                      fontWeight: FontWeight.w800,
                       color: Theme.of(context).accentColor,
                     ),
@@ -83,7 +83,7 @@ class _TrendingState extends State<Trending> {
 
             //Horizontal List here
             Container(
-              height: MediaQuery.of(context).size.height / 2.4,
+              height: MediaQuery.of(context).size.height / 2.2,
               width: MediaQuery.of(context).size.width,
               child: ListView.builder(
                 primary: false,
@@ -237,7 +237,7 @@ class _TrendingState extends State<Trending> {
                 Map parcour = parcours[index];
 
                 return Container(
-                  height: MediaQuery.of(context).size.height / 2.4,
+                  height: MediaQuery.of(context).size.height / 2.0,
                   child: Padding(
                     padding: EdgeInsets.only(bottom: 20.0),
                     child: SlideItem(

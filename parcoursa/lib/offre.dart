@@ -65,7 +65,7 @@ class BodyLayoutState extends State<BodyLayout> {
   Widget _myListView() {
     return ListView.builder(
       itemCount: titres.length,
-      itemBuilder: (context, index) {  
+      itemBuilder: (context, index) {
         return Card( //                           <-- Card widget
           shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
@@ -92,7 +92,7 @@ class BodyLayoutState extends State<BodyLayout> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             TextField(
-                              decoration: InputDecoration( 
+                              decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: 'Voulez-vous échanger des points pour obtenir cette récompense?'),
                                   textAlign: TextAlign.center,
@@ -101,7 +101,7 @@ class BodyLayoutState extends State<BodyLayout> {
                             SizedBox(
                               width: 320.0,
                               child: RaisedButton(
-                                onPressed: () {   
+                                onPressed: () {
                                   setState(() {
                                     titres.removeAt(index);
                                     soustitres.removeAt(index);
@@ -117,7 +117,7 @@ class BodyLayoutState extends State<BodyLayout> {
                             SizedBox(
                               width: 320.0,
                               child: RaisedButton(
-                                onPressed: () {   
+                                onPressed: () {
                                     Navigator.of(context).pop();},
                                 child: Text(
                                   "Attendre",
@@ -137,7 +137,7 @@ class BodyLayoutState extends State<BodyLayout> {
         );
       },
     );
-  } 
+  }
 }
 
 int chiffreRandom() {
