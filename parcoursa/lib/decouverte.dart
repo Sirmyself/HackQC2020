@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:parcoursa/profil.dart';
 import 'categories.dart';
+import 'customNavTransition.dart';
 import 'parcours.dart';
 import 'custom/trending_item.dart';
 import 'custom/slide_item.dart';
@@ -68,7 +69,7 @@ class _TrendingState extends State<Trending> {
                   ),
                   onPressed: () {
                     Navigator.of(context).push(
-                      MaterialPageRoute(
+                      CustomNavRoute(
                         builder: (BuildContext context) {
                           return Profil();
                         },

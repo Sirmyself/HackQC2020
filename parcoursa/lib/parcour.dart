@@ -23,7 +23,7 @@ class _ParcourState extends State<Parcour>{
   @override
   Widget build(BuildContext context) {
       return Padding(
-        padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
+        padding: EdgeInsets.only(top: 30.0, left: 10.0, right: 10.0),
         child: Container(
           height: MediaQuery.of(context).size.height / 2.9,
           width: MediaQuery.of(context).size.width / 1.2,
