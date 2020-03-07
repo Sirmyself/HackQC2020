@@ -7,6 +7,7 @@ class SlideItem extends StatefulWidget {
   final String title;
   final String address;
   final String rating;
+  final int nbrBalise;
 
   SlideItem({
     Key key,
@@ -14,6 +15,7 @@ class SlideItem extends StatefulWidget {
     @required this.title,
     @required this.address,
     @required this.rating,
+    @required this.nbrBalise,
   }) : super(key: key);
 
   @override
@@ -29,7 +31,7 @@ class _SlideItemState extends State<SlideItem> {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (BuildContext context) {
-              return Parcour(img: "${widget.img}", address: "${widget.address}", title: "${widget.title}", rating: "${widget.rating}");
+              return Parcour(img: "${widget.img}", address: "${widget.address}", title: "${widget.title}", rating: "${widget.rating}", nbrBalise: widget.nbrBalise);
             },
           ),
         );
