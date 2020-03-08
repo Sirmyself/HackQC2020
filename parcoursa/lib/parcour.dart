@@ -7,6 +7,7 @@ import 'package:google_map_polyline/google_map_polyline.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:parcoursa/Interfaces/IChargeDonnees.dart';
 import 'Balises.dart';
+import 'navigationParcours.dart';
 
 class Parcour extends StatefulWidget {
   final String img;
@@ -166,7 +167,18 @@ class _ParcourState extends State<Parcour> {
                       ),
                     ),
                   ),
-                  Card(
+                  Container(
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (BuildContext context) {
+                              return NavigationParcours();
+                            },
+                          ),
+                        );
+                      },
+                      child: Card(
                     elevation: 3.0,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25.0)),
@@ -184,6 +196,8 @@ class _ParcourState extends State<Parcour> {
                           ),
                         ],
                       ),
+                    ),
+                  ),
                     ),
                   ),
                 ],
