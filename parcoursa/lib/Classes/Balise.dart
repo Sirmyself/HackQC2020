@@ -35,6 +35,15 @@ class Balise {
     );
   }
 
+  Marker getMarkerAvecIcon(BitmapDescriptor loadedIcon) {
+    return Marker(
+      markerId: MarkerId(this._id.toString()),
+      position: LatLng(this._latitude, _longitude),
+      infoWindow: InfoWindow(title: this.nomBalise, snippet: this.description),
+      icon: loadedIcon,
+    );
+  }
+
   LatLng getLatLng() {
     return LatLng(this._latitude, this._longitude);
   }

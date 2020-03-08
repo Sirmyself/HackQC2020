@@ -187,7 +187,7 @@ class _ParcourState extends State<Parcour> {
                         ),
                           onMapCreated: (GoogleMapController controller) {
                           _controller.complete(controller);
-                          // fuck();
+                         //fuck();
                         },
                         markers: meMarker(),
                         polylines: meRoutes(),
@@ -212,30 +212,23 @@ class _ParcourState extends State<Parcour> {
   }
 
   Set<Polyline> meRoutes(){
-    Set<Polyline> touteRoutes = Set<Polyline>();
-    List<LatLng> pointsTest = List<LatLng>();
-    pointsTest.add(LatLng(48.43451,-68.51899));
-    pointsTest.add(LatLng(48.43365,-68.52023));
-    pointsTest.add(LatLng(48.43392,-68.52066));
-    pointsTest.add(LatLng(48.43352,-68.52127));
-    pointsTest.add(LatLng(48.43409,-68.52218));
-    touteRoutes.add(Polyline(
-      polylineId: PolylineId("route"),
-      geodesic: true,
-      points: pointsTest,
-      width: 7,
-      color: Colors.blue
-    ));
-    return touteRoutes;
+    var trajet = _charger.getTrajetPublic();
+    Set<Polyline> toutPolyline = Set<Polyline>();
+    var toutChemin = trajet.getChemin();
+    for (var poly in toutChemin) {
+      toutPolyline.add(poly);
+    }
+
+    return toutPolyline;
   }
 
   void fuck() async{
     var listMarker = _charger.getBalisesPublic();
     GoogleMapPolyline polylineMaker = GoogleMapPolyline(apiKey: "AIzaSyBrnMUAS_68i_fPxTaumVgbjJpWn-jBgI4");
-    var latlngPoly = await polylineMaker.getCoordinatesWithLocation(origin: listMarker[0].getLatLng(), destination: listMarker[1].getLatLng(), mode: RouteMode.walking);
-    String fuckEverthing = "";
+    var latlngPoly = await polylineMaker.getCoordinatesWithLocation(origin: listMarker[3].getLatLng(), destination: listMarker[4].getLatLng(), mode: RouteMode.walking);
+    String fuckEverthing = "\n";
     for (var latlng in latlngPoly) {
-      fuckEverthing = fuckEverthing + "Lat " + latlng.latitude.toString() + " Lng " + latlng.longitude.toString() + "   "; 
+      fuckEverthing = fuckEverthing + "DATA " + latlng.latitude.toString() + "," + latlng.longitude.toString() + "\n"; 
     }
     throw Exception(fuckEverthing);
     Polyline route = new Polyline(

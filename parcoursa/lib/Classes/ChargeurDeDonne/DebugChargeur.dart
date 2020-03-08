@@ -1,6 +1,9 @@
 import 'package:parcoursa/Interfaces/IChargeDonnees.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:flutter/material.dart';
 
 import '../Balise.dart';
+import '../Trajet.dart';
 
 class DebugChargeur implements IChargeDonnees {
   //à mettre dans la vrai classe si on a le temps
@@ -20,6 +23,114 @@ class DebugChargeur implements IChargeDonnees {
 
     return balises;
   }
+
+  @override
+  Trajet getTrajetPublic() {
+    List<Polyline> chemin = new List<Polyline>();
+    
+    List<LatLng> pointsChemin1 = new List<LatLng>();
+    pointsChemin1.add(LatLng(48.43451,-68.51899));
+    pointsChemin1.add(LatLng(48.43365,-68.52023));
+    pointsChemin1.add(LatLng(48.43392,-68.52066));
+    pointsChemin1.add(LatLng(48.43352,-68.52127));
+    pointsChemin1.add(LatLng(48.43409,-68.52218));
+    Polyline chemin1 = new Polyline(polylineId: PolylineId("public1"),
+      geodesic: true,
+      points: pointsChemin1,
+      width: 7,
+      color: Colors.blue );
+    
+    List<LatLng> pointsChemin2 = new List<LatLng>();
+    pointsChemin2.add(LatLng(48.43409,-68.52218));
+    pointsChemin2.add(LatLng(48.43423,-68.52230));
+    pointsChemin2.add(LatLng(48.43462,-68.52291));
+    pointsChemin2.add(LatLng(48.43478,-68.52319));
+    pointsChemin2.add(LatLng(48.43480,-68.52323));
+    pointsChemin2.add(LatLng(48.43502,-68.52290));
+    pointsChemin2.add(LatLng(48.43510,-68.52290));
+    pointsChemin2.add(LatLng(48.43522,-68.52275));
+    pointsChemin2.add(LatLng(48.43570,-68.52353));
+    pointsChemin2.add(LatLng(48.43605,-68.52411));
+    pointsChemin2.add(LatLng(48.43641,-68.52476));
+    pointsChemin2.add(LatLng(48.43682,-68.52551));
+    pointsChemin2.add(LatLng(48.43788,-68.52741));
+    pointsChemin2.add(LatLng(48.43804,-68.52768));
+    pointsChemin2.add(LatLng(48.43819,-68.52748));
+    pointsChemin2.add(LatLng(48.43907,-68.52624));
+    pointsChemin2.add(LatLng(48.43939,-68.52584));
+    pointsChemin2.add(LatLng(48.43990,-68.52487));
+    pointsChemin2.add(LatLng(48.44086,-68.52300));
+    pointsChemin2.add(LatLng(48.44110,-68.52264));
+    pointsChemin2.add(LatLng(48.44132,-68.52235));
+    pointsChemin2.add(LatLng(48.44221,-68.52109));
+    pointsChemin2.add(LatLng(48.44163,-68.52013));
+    Polyline chemin2 = new Polyline(polylineId: PolylineId("public2"),
+      geodesic: true,
+      points: pointsChemin2,
+      width: 7,
+      color: Colors.blue );
+
+
+    List<LatLng> pointsChemin3 = new List<LatLng>();
+    pointsChemin3.add(LatLng(48.44163,-68.52013));
+    pointsChemin3.add(LatLng(48.44221,-68.52109));
+    pointsChemin3.add(LatLng(48.44237,-68.52087));
+    pointsChemin3.add(LatLng(48.44260,-68.52128));
+    pointsChemin3.add(LatLng(48.44272,-68.52147));
+    pointsChemin3.add(LatLng(48.44273,-68.52154));
+    pointsChemin3.add(LatLng(48.44273,-68.52158));
+    Polyline chemin3 = new Polyline(polylineId: PolylineId("public3"),
+      geodesic: true,
+      points: pointsChemin3,
+      width: 7,
+      color: Colors.blue );
+
+    List<LatLng> pointsChemin4 = new List<LatLng>();
+    pointsChemin4.add(LatLng(48.44273,-68.52158));
+    pointsChemin4.add(LatLng(48.44273,-68.52150));
+    pointsChemin4.add(LatLng(48.44268,-68.52141));
+    pointsChemin4.add(LatLng(48.44248,-68.52107));
+    pointsChemin4.add(LatLng(48.44237,-68.52087));
+    pointsChemin4.add(LatLng(48.44227,-68.52101));
+    pointsChemin4.add(LatLng(48.44220,-68.52111));
+    pointsChemin4.add(LatLng(48.44175,-68.52173));
+    pointsChemin4.add(LatLng(48.44291,-68.52354));
+    pointsChemin4.add(LatLng(48.44340,-68.52435));
+    pointsChemin4.add(LatLng(48.44362,-68.52450));
+    pointsChemin4.add(LatLng(48.44383,-68.52458));
+    pointsChemin4.add(LatLng(48.44427,-68.52466));
+    pointsChemin4.add(LatLng(48.44481,-68.52474));
+    pointsChemin4.add(LatLng(48.44496,-68.52487));
+    pointsChemin4.add(LatLng(48.44511,-68.52504));
+    pointsChemin4.add(LatLng(48.44523,-68.52522));
+    pointsChemin4.add(LatLng(48.44652,-68.52731));
+    pointsChemin4.add(LatLng(48.44726,-68.52628));
+    pointsChemin4.add(LatLng(48.44764,-68.52686));
+    pointsChemin4.add(LatLng(48.44794,-68.52731));
+    pointsChemin4.add(LatLng(48.44797,-68.52727));
+    pointsChemin4.add(LatLng(48.44798,-68.52726));
+    pointsChemin4.add(LatLng(48.44800,-68.52726));
+    pointsChemin4.add(LatLng(48.44803,-68.52726));
+    pointsChemin4.add(LatLng(48.44804,-68.52726));
+    pointsChemin4.add(LatLng(48.44807,-68.52729));
+    pointsChemin4.add(LatLng(48.44822,-68.52704));
+    pointsChemin4.add(LatLng(48.44853,-68.52701));
+    pointsChemin4.add(LatLng(48.44882,-68.52745));
+    pointsChemin4.add(LatLng(48.44885,-68.52751));
+    Polyline chemin4 = new Polyline(polylineId: PolylineId("public4"),
+      geodesic: true,
+      points: pointsChemin4,
+      width: 7,
+      color: Colors.blue );
+
+    chemin.add(chemin1);
+    chemin.add(chemin2);
+    chemin.add(chemin3);
+    chemin.add(chemin4);
+    Trajet trajet = new Trajet(chemin);
+    return trajet;
+  }
+
 
   @override
   List<Balise> getBalisesArt() { //from https://www.donneesquebec.ca/recherche/fr/dataset/art-public/resource/ddbb2a46-0995-4256-ae44-7d68ffc5b651
