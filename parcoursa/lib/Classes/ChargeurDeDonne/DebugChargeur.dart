@@ -32,7 +32,10 @@ class DebugChargeur implements IChargeDonnees {
       break;
 
       case VILLE_SUPPORTE.MONTREAL: //https://www.donneesquebec.ca/recherche/fr/dataset/vmtl-lieux-publics-climatises/resource/ee441632-5530-4840-9bf7-cd4a3e7ac81c
-        break;
+        balises.add(new Balise(45.5080449591, -73.8268109932, "Riverdale High school", "l5060 boulevard Sources"));
+        balises.add(new Balise(45.5099501052, -73.8229949577, "Sportplex 4 glaces Pierrefonds", "14700 boulevard Pierrefonds"));
+        balises.add(new Balise(45.4956051385, -73.8467913492, "Bibliothèque de Cartierville", "5900 rue de Salaberry"));
+      break;
     }
 
     return balises;
@@ -59,15 +62,16 @@ class DebugChargeur implements IChargeDonnees {
       break;
       
       case VILLE_SUPPORTE.MONTREAL: { // from https://www.donneesquebec.ca/recherche/fr/dataset/vmtl-art-public-information-sur-les-oeuvres-de-la-collection-municipale/resource/18705524-c8a6-49a0-bca7-92f493e6d329
-        balises.add(new Balise(431965, 16604, "", "", "start", ));
-        balises.add(new Balise(431965, 16604, "", "", "start", ));
-        balises.add(new Balise(431965, 16604, "", "", "start", ));
-        balises.add(new Balise(431965, 16604, "", "", "start", ));
-        balises.add(new Balise(431965, 16604, "", "", "start", ));
-        balises.add(new Balise(431965, 16604, "", "", "start", ));
-        balises.add(new Balise(431965, 16604, "", "", "start", ));
-        balises.add(new Balise(431965, 16604, "", "", "start", ));
-        balises.add(new Balise(431965, 16604, "", "", "start", ));
+        balises.add(new Balise(45.603186, -73.642556, "Voiles", "Poli, finition effectuée par meuleuse à disque (gros grain)", "ker90u", 360, "assets/voile.jpg"));
+        balises.add(new Balise(45.431119, -73.673413, "Du long du long", "Acier brut; peinture; gravier"));
+        balises.add(new Balise(45.428916, -73.682227, "Les voûtes d'Ulysse", "Acier; béton"));
+        balises.add(new Balise(45.425053, -73.619043, "L'eau et les sports", "Commande à l'artiste"));
+        balises.add(new Balise(45.431031, -73.670124, "Force et progrès", "Soudé; peint"));
+        balises.add(new Balise(45.508816, -73.554069, "Vitraux", "Intégration à l'architecture"));
+        balises.add(new Balise(45.501079, -73.555515, "Ce qui reste 1997-2001", "Intégration des arts à l'architecture"));
+        balises.add(new Balise(45.553357, -73.662743, "Le spectacle de la curiosité", "Intégration des arts à l'architecture"));
+        balises.add(new Balise(45.475382, -73.593225, "Monument à Louis Cyr", "Bronze coulé; cire perdue"));
+        balises.add(new Balise(45.503965, -73.587328, "Le serment de Dollard des Ormeaux et de ses compagnons", "Intégration à l'architecture"));
       }
       break;
     }
@@ -99,7 +103,15 @@ class DebugChargeur implements IChargeDonnees {
       break;
       
       case VILLE_SUPPORTE.MONTREAL: //from https://www.donneesquebec.ca/recherche/fr/dataset/vmtl-grands-parcs-parcs-d-arrondissements-et-espaces-publics/resource/0c0ad27c-b98d-42d8-908f-8458fb350ff0
-
+        balises.add(new Balise(45.460973, -73.630669, "Park Trenholme", "Côte-des-Neiges-Notre-Dame-de-Grâce", "brt8jh9", 123, "assets/park_2.jpg"));
+        balises.add(new Balise(45.466403, -73.632687, "Park Benny", "Parc d'arrondissement"));
+        balises.add(new Balise(45.469824, -73.631256, "Parc William-Hurst", "Parc d'arrondissement"));
+        balises.add(new Balise(45.473799, -73.634763, "Somerled Park", "Parc d'arrondissement"));
+        balises.add(new Balise(45.477472, -73.646528, "Parc des Conseillers", "Parc d'arrondissement"));
+        balises.add(new Balise(45.484314, -73.649406, "Parc Wexford", "Parc d'arrondissement"));
+        balises.add(new Balise(45.489827, -73.648195, "Rosemary-Brown", "Parc d'arrondissement"));
+        balises.add(new Balise(45.494447, -73.643895, "Parc Nelson-Mandela", "Parc d'arrondissement"));
+        balises.add(new Balise(45.505164, -73.631515, "Kent", "Parc d'arrondissement"));
         break;
     }
 
@@ -108,9 +120,9 @@ class DebugChargeur implements IChargeDonnees {
 
 
 /*
-  balises.add(new Balise(431965, 16604, "", "", "start", ));
-  balises.add(new Balise(431965, 16604, "", "", "start", ));
-  balises.add(new Balise(431965, 16604, "", "", "start", ));
+  balises.add(new Balise(431965, 16604, "", ""));
+  balises.add(new Balise(431965, 16604, "", ""));
+  balises.add(new Balise(431965, 16604, "", ""));
  */
 
   Trajet getTrajetPublic([VILLE_SUPPORTE pVille = VILLE_SUPPORTE.RIMOUSKI]) {
