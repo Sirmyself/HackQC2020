@@ -8,7 +8,7 @@ abstract class IChargeDonnees {
   List<Balise> getBalisesPublic();
   Trajet getTrajetPublic();
   List<Balise> getBalisesArt();
-  //Trajet getTrajetArt();
+  Trajet getTrajetArt();
   List<Balise> getBalisesParc();
   //Trajet getTrajetParc();
 }

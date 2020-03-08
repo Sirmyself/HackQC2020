@@ -207,7 +207,7 @@ class _ParcourState extends State<Parcour> {
                         ),
                         onMapCreated: (GoogleMapController controller) {
                           _controller.complete(controller);
-                          //fuck();
+                          fuck();
                         },
                         markers: meMarker(),
                         polylines: meRoutes(),
@@ -222,7 +222,22 @@ class _ParcourState extends State<Parcour> {
       );
 
   Set<Marker> meMarker() {
-    var listMarker = _charger.getBalisesPublic();
+    var listMarker;
+    switch ("${widget.title}") {
+      case "Paul-Hubert":
+        listMarker = _charger.getBalisesPublic();
+        break;
+      case "Les bâtisseurs":
+        listMarker = _charger.getBalisesParc();
+        break;
+
+      case "Happy Jones":
+        listMarker = _charger.getBalisesArt();
+        break;
+      default:
+        listMarker = {};
+    }
+    
     Set<Marker> toutMarker = Set<Marker>();
     for (var marker in listMarker) {
       toutMarker.add(marker.getMarker());
@@ -231,23 +246,37 @@ class _ParcourState extends State<Parcour> {
   }
 
   Set<Polyline> meRoutes() {
-    var trajet = _charger.getTrajetPublic();
+    var trajet;
+    switch ("${widget.title}") {
+      case "Paul-Hubert":
+        trajet = _charger.getTrajetPublic();
+        break;
+      case "Les bâtisseurs":
+        //trajet = _charger.getTrajetParc();
+        break;
+
+      case "Happy Jones":
+        trajet = _charger.getTrajetArt();
+        break;
+      default:
+        trajet = null;
+    }
     Set<Polyline> toutPolyline = Set<Polyline>();
     var toutChemin = trajet.getChemin();
     for (var poly in toutChemin) {
-      toutPolyline.add(poly);
+     toutPolyline.add(poly);
     }
 
     return toutPolyline;
   }
 
   void fuck() async {
-    var listMarker = _charger.getBalisesPublic();
+    var listMarker = _charger.getBalisesArt();
     GoogleMapPolyline polylineMaker =
         GoogleMapPolyline(apiKey: "AIzaSyBrnMUAS_68i_fPxTaumVgbjJpWn-jBgI4");
     var latlngPoly = await polylineMaker.getCoordinatesWithLocation(
-        origin: listMarker[3].getLatLng(),
-        destination: listMarker[4].getLatLng(),
+        origin: listMarker[4].getLatLng(),
+        destination: listMarker[5].getLatLng(),
         mode: RouteMode.walking);
     String fuckEverthing = "\n";
     for (var latlng in latlngPoly) {
