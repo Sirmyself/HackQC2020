@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'Carte.dart';
+import 'Classes/Promotion.dart';
 import 'decouverte.dart';
 import 'profil.dart';
 import 'package:parcoursa/Classes/Utilisateur.dart';
-import 'dart:math';
 
 List promotions = [
   new Promotion(
