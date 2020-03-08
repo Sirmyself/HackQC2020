@@ -39,9 +39,7 @@ class DebugChargeur implements IChargeDonnees {
   }
 
   @override
-<<<<<<< HEAD
   List<Balise> getBalisesArt([VILLE_SUPPORTE pVille = VILLE_SUPPORTE.RIMOUSKI]) {
-=======
   Trajet getTrajetPublic() {
     List<Polyline> chemin = new List<Polyline>();
     
@@ -150,8 +148,7 @@ class DebugChargeur implements IChargeDonnees {
 
 
   @override
-  List<Balise> getBalisesArt() { //from https://www.donneesquebec.ca/recherche/fr/dataset/art-public/resource/ddbb2a46-0995-4256-ae44-7d68ffc5b651
->>>>>>> 5b12484095d74dfe178110f4598a523a99839976
+  List<Balise> getBalisesArt([VILLE_SUPPORTE pVille = VILLE_SUPPORTE.RIMOUSKI]) { //from https://www.donneesquebec.ca/recherche/fr/dataset/art-public/resource/ddbb2a46-0995-4256-ae44-7d68ffc5b651
     List<Balise> balises = new List<Balise>();
 
     switch(pVille) {
