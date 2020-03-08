@@ -274,9 +274,12 @@ class _ParcourState extends State<Parcour> {
         trajet = null;
     }
     Set<Polyline> toutPolyline = Set<Polyline>();
-    var toutChemin = trajet.getChemin();
-    for (var poly in toutChemin) {
-     toutPolyline.add(poly);
+    if(trajet != null)
+    {
+          var toutChemin = trajet.getChemin();
+          for (var poly in toutChemin) {
+            toutPolyline.add(poly);
+    }
     }
 
     return toutPolyline;
