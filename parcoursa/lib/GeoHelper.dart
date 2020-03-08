@@ -1,22 +1,36 @@
 import 'package:parcoursa/Classes/ChargeurDeDonne/DebugChargeur.dart';
 import 'dart:math';
 import 'package:parcoursa/Classes/Balise.dart';
+import 'package:parcoursa/Interfaces/IChargeDonnees.dart';
 
 class GeoHelper
 {
 
-  static Balise isPointInArea(double lat, double long, double max)
+  static Balise getBaliseFromPoint(double lat, double long, double max)
   {
     DebugChargeur dc = DebugChargeur();
     Balise found;
     
-    for (int i = 0; i < dc.getBalisesPublic().length; ++i)
+
+  List<Balise> balises = dc.getBalisesPublic();
+  balises.addAll(dc.getBalisesPublic(VILLE_SUPPORTE.QUEBEC));
+  //balises.addAll(dc.getBalisesPublic(VILLE_SUPPORTE.MONTREAL));
+
+  balises.addAll(dc.getBalisesArt(VILLE_SUPPORTE.RIMOUSKI));
+  //balises.addAll(dc.getBalisesArt(VILLE_SUPPORTE.QUEBEC));
+  //balises.addAll(dc.getBalisesArt(VILLE_SUPPORTE.MONTREAL));
+
+  balises.addAll(dc.getBalisesParc(VILLE_SUPPORTE.RIMOUSKI));
+  balises.addAll(dc.getBalisesParc(VILLE_SUPPORTE.QUEBEC));
+  //balises.addAll(dc.getBalisesParc(VILLE_SUPPORTE.MONTREAL));
+
+    for (int i = 0; i < balises.length; ++i)
     {
-      double distance = getDistance(lat, long, dc.getBalisesPublic()[i].getLatitude(), dc.getBalisesPublic()[i].getLongitude());
+      double distance = getDistance(lat, long, balises[i].getLatitude(), balises[i].getLongitude());
       
       if (distance <= max)
       {
-        found = dc.getBalisesPublic()[i];
+        found = balises[i];
         break;
       }
     }
