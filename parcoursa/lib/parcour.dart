@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:parcoursa/Interfaces/IChargeDonnees.dart';
+import 'Balises.dart';
 
 class Parcour extends StatefulWidget {
   final String img;
@@ -29,10 +30,9 @@ class Parcour extends StatefulWidget {
 class _ParcourState extends State<Parcour> {
   IChargeDonnees _charger = DebugChargeur();
   Completer<GoogleMapController> _controller = Completer();
- 
+
   @override
-  Widget build(BuildContext context) {
-    return Container(
+  Widget build(BuildContext context) => Container(
       height: MediaQuery.of(context).size.height / 2.4,
       width: MediaQuery.of(context).size.width,
       child: Card(
@@ -56,6 +56,12 @@ class _ParcourState extends State<Parcour> {
                       fit: BoxFit.cover,
                     ),
                   ),
+                ),
+                Positioned(
+                  top: 30.0,
+                  left: 6.0,
+                  child:
+                      Icon(LineIcons.arrow_left, color: Colors.white, size: 25),
                 ),
                 Positioned(
                   top: 30.0,
@@ -116,33 +122,46 @@ class _ParcourState extends State<Parcour> {
                 ),
               ),
             ),
-            SizedBox(height: 10.0),
+            SizedBox(height: 20.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                Card(
-                  elevation: 3.0,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25.0)),
-                  color: Colors.white,
-                  child: Container(
-                    height: MediaQuery.of(context).size.width / 3,
-                    width: MediaQuery.of(context).size.width / 2,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        Icon(
-                          LineIcons.flag_checkered,
-                          color: Colors.blue,
-                          size: 65,
-                        ),
-                        Text(
-                          widget.nbrBalise.toString(),
-                          style: TextStyle(fontSize: 55, color: Colors.blue),
-                        )
-                      ],
+                Container(
+                  child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return Balises(title: "${widget.title}");
+                        },
+                      ),
+                    );
+                  },
+                  child: Card(
+                    elevation: 3.0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25.0)),
+                    color: Colors.white,
+                    child: Container(
+                      height: MediaQuery.of(context).size.width / 4,
+                      width: MediaQuery.of(context).size.width / 2,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Icon(
+                            LineIcons.flag_checkered,
+                            color: Colors.blue,
+                            size: 65,
+                          ),
+                          Text(
+                            widget.nbrBalise.toString(),
+                            style: TextStyle(fontSize: 55, color: Colors.blue),
+                          )
+                        ],
+                      ),
                     ),
                   ),
+                ),
                 ),
                 Card(
                   elevation: 3.0,
@@ -150,8 +169,8 @@ class _ParcourState extends State<Parcour> {
                       borderRadius: BorderRadius.circular(25.0)),
                   color: Colors.greenAccent,
                   child: Container(
-                    height: MediaQuery.of(context).size.width / 3,
-                    width: MediaQuery.of(context).size.width / 3,
+                    height: MediaQuery.of(context).size.width / 4,
+                    width: MediaQuery.of(context).size.width / 4,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
@@ -166,6 +185,7 @@ class _ParcourState extends State<Parcour> {
                 ),
               ],
             ),
+            SizedBox(height: 20.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
@@ -177,16 +197,16 @@ class _ParcourState extends State<Parcour> {
                     height: MediaQuery.of(context).size.height / 2.4,
                     width: MediaQuery.of(context).size.width / 1.2,
                     child: GoogleMap(
-                        mapType: MapType.normal,
-                        initialCameraPosition: CameraPosition(
-                          target: LatLng(48.449308, -68.525349),
-                          zoom: 14.4746,
-                        ),
-                        onMapCreated: (GoogleMapController controller) {
-                          _controller.complete(controller);
-                        },
-                        markers: meMarker(),
-                        ),
+                      mapType: MapType.normal,
+                      initialCameraPosition: CameraPosition(
+                        target: LatLng(48.449308, -68.525349),
+                        zoom: 14.4746,
+                      ),
+                      onMapCreated: (GoogleMapController controller) {
+                        _controller.complete(controller);
+                      },
+                      markers: meMarker(),
+                    ),
                   ),
                 ),
               ],
@@ -195,16 +215,13 @@ class _ParcourState extends State<Parcour> {
         ),
       ),
     );
-  }
 
   Set<Marker> meMarker() {
-      var listMarker = _charger.getBalisesPublic();
-      Set<Marker> toutMarker = Set<Marker>();
-      for (var marker in listMarker) {
-        toutMarker.add(marker.getMarker());
-      }
-      return toutMarker;
+    var listMarker = _charger.getBalisesPublic();
+    Set<Marker> toutMarker = Set<Marker>();
+    for (var marker in listMarker) {
+      toutMarker.add(marker.getMarker());
+    }
+    return toutMarker;
   }
-
 }
-
