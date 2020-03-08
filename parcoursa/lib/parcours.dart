@@ -36,36 +36,36 @@ List parcours = [
     "nbrBalise": 3
   },
   {
-    "img": "assets/chat.jpg",
-    "title": "Happy Jones",
+    "img": "assets/montjoli_fresques.jpg",
+    "title": "Mont-Joli",
     "address": "1278 Loving Acres RoadKansas City, MO 64110",
     "rating": "93",
     "nbrBalise": 10
   },
   {
-    "img": "assets/chat.jpg",
-    "title": "Happy Jones",
+    "img": "assets/saguenay_maison-deluge.jpg",
+    "title": "Saguenay",
     "address": "1278 Loving Acres RoadKansas City, MO 64110",
     "rating": "18",
     "nbrBalise": 5
   },
   {
-    "img": "assets/chat.jpg",
-    "title": "Happy Jones",
+    "img": "assets/perce_rocher.jpg",
+    "title": "Percé",
     "address": "1278 Loving Acres RoadKansas City, MO 64110",
     "rating": "23",
     "nbrBalise": 8
   },
   {
-    "img": "assets/chat.jpg",
-    "title": "Happy Jones",
+    "img": "assets/quebec_chateau-frontenac.jpg",
+    "title": "Québec",
     "address": "1278 Loving Acres RoadKansas City, MO 64110",
     "rating": "40",
     "nbrBalise": 7
   },
   {
-    "img": "assets/chat.jpg",
-    "title": "Happy Jones",
+    "img": "assets/montreal_biodome.jpg",
+    "title": "Montréal",
     "address": "1278 Loving Acres RoadKansas City, MO 64110",
     "rating": "45",
     "nbrBalise": 3
