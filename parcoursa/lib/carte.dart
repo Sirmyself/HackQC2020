@@ -137,27 +137,51 @@ class _CarteState extends State<Carte> {
   }
 
   Set<Marker> meMarker() {
-    var listPublic = _charger.getBalisesPublic();
-    var listArt = _charger.getBalisesArt();
-    var listParc = _charger.getBalisesParc();
+
+    VILLE_SUPPORTE ville = VILLE_SUPPORTE.RIMOUSKI;
+
+    if(_villeSelectionne == "Montréal")
+    {
+      ville = VILLE_SUPPORTE.MONTREAL;
+    }
+    else if(_villeSelectionne == "Québec")
+    {
+      ville = VILLE_SUPPORTE.QUEBEC;
+    }
+    else {
+      ville = VILLE_SUPPORTE.RIMOUSKI;
+    }
+
+    var listPublic = _charger.getBalisesPublic(ville);
+    var listArt = _charger.getBalisesArt(ville);
+    var listParc = _charger.getBalisesParc(ville);
 
     Set<Marker> toutMarker = Set<Marker>();
 
-    if (_public) {
-      for (var marker in listPublic) {
-        toutMarker.add(marker.getMarker());
+    if (_public  && listPublic != null) {
+      for (int i = 0; i < listPublic.length; ++i) {
+        if (listPublic[i] != null)
+        {
+          toutMarker.add(listPublic[i].getMarker());
+        }
       }
     }
 
-    if (_art) {
-      for (var marker in listArt) {
-        toutMarker.add(marker.getMarker());
+    if (_art && listArt != null) {
+      for (int i = 0; i < listArt.length; ++i) {
+        if (listArt[i] != null)
+        {
+          toutMarker.add(listArt[i].getMarker());
+        }
       }
     }
 
-    if (_parc) {
-      for (var marker in listParc) {
-        toutMarker.add(marker.getMarker());
+    if (_parc  && listParc != null) {
+      for (int i = 0; i < listParc.length; ++i) {
+         if (listParc[i] != null)
+        {
+          toutMarker.add(listParc[i].getMarker());
+        }
       }
     }
 
