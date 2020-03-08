@@ -240,11 +240,11 @@ class _ParcourState extends State<Parcour> {
         listMarker = _charger.getBalisesPublic(VILLE_SUPPORTE.RIMOUSKI);
         break;
       case "Les bâtisseurs":
-        listMarker = _charger.getBalisesParc(VILLE_SUPPORTE.RIMOUSKI);
+        listMarker = _charger.getBalisesArt(VILLE_SUPPORTE.RIMOUSKI);
         break;
 
       case "Happy Jones":
-        listMarker = _charger.getBalisesArt(VILLE_SUPPORTE.RIMOUSKI);
+        listMarker = _charger.getBalisesParc(VILLE_SUPPORTE.RIMOUSKI);
         break;
       default:
         listMarker = {};
@@ -264,11 +264,11 @@ class _ParcourState extends State<Parcour> {
         trajet = _charger.getTrajetPublic(VILLE_SUPPORTE.RIMOUSKI);
         break;
       case "Les bâtisseurs":
-        //trajet = _charger.getTrajetParc(VILLE_SUPPORTE.RIMOUSKI);
+        trajet = _charger.getTrajetArt(VILLE_SUPPORTE.RIMOUSKI);
         break;
 
       case "Happy Jones":
-        trajet = _charger.getTrajetArt(VILLE_SUPPORTE.RIMOUSKI);
+        //trajet = _charger.getTrajetParc(VILLE_SUPPORTE.RIMOUSKI);
         break;
       default:
         trajet = null;
