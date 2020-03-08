@@ -139,6 +139,41 @@ class Profil extends StatelessWidget {
     );
   }
 
+ Widget _buildStatItemClickablePoints(String label, String count, BuildContext
+      context) {
+    TextStyle _statLabelTextStyle = TextStyle(
+      fontFamily: 'Roboto',
+      color: Colors.black,
+      fontSize: 16.0,
+      fontWeight: FontWeight.w200,
+    );
+
+    TextStyle _statCountTextStyle = TextStyle(
+      color: Colors.black54,
+      fontSize: 24.0,
+      fontWeight: FontWeight.bold,
+    );
+
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        InkWell(
+          onTap: () {
+            Navigator.of(context).pushNamed('/points');
+          },
+          child: Text(
+            count,
+            style: _statCountTextStyle,
+          ),
+        ),
+        Text(
+          label,
+          style: _statLabelTextStyle,
+        ),
+      ],
+    );
+  }
+
   Widget _buildStatContainer(BuildContext context) {
     return Container(
       height: 60.0,
@@ -149,7 +184,7 @@ class Profil extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          _buildStatItem("Points", _points),
+          _buildStatItemClickablePoints("Points", _points, context),
           _buildStatItem("Lieux visités", _lieuVisites),
           _buildStatItemClickable("Succès", _sucess, context),
         ],
