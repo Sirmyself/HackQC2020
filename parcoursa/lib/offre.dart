@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'Carte.dart';
+import 'Classes/Promotion.dart';
 import 'decouverte.dart';
 import 'profil.dart';
 import 'package:parcoursa/Classes/Utilisateur.dart';
+
+List promotions = [
+  new Promotion(
+      'Aux Bienfaits', 'Obtenez un (1) bébé cornet à l\'achat d\'un sundae.'),
+  new Promotion('Cantine Le Rallye',
+      'Obtenez un (1) hot-dog gratuitement à l\'achat d\'un trio poutine.')
+];
 
 class Offre extends StatefulWidget {
   @override
@@ -82,8 +90,7 @@ class BodyLayout extends StatefulWidget {
 }
 
 class BodyLayoutState extends State<BodyLayout> {
-  //final titres = ['Aux Bienfaits', 'Cantine Le Rallye'];
-  final icons = [Icons.monetization_on];
+  final icons = [Icons.monetization_on, Icons.monetization_on];
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +107,6 @@ class BodyLayoutState extends State<BodyLayout> {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
           elevation: 3.0,
           child: ListTile(
-            //leading: FlatButton.icon(onPressed: null, icon: Icon(icons[index], size: 30, color: Color(0xFF404A5C),), label: Text('13300')) ,
             leading: CircleAvatar(
               child: Text(offresActives[index].point.toString()),
             ),
