@@ -72,10 +72,10 @@ class BodyLayoutState extends State<BodyLayout> {
             elevation: 3.0,
           child: ListTile(
             //leading: FlatButton.icon(onPressed: null, icon: Icon(icons[index], size: 30, color: Color(0xFF404A5C),), label: Text('13300')) ,
-            leading: CircleAvatar(child: Text(chiffreRandom().toString()),),
+            leading: CircleAvatar(child: Text(chiffreRandom().toString()),foregroundColor: Color.fromRGBO(255, 255, 255, 9), backgroundColor: Color.fromRGBO(25, 50, 57, 9),),
             title: Text(titres[index], style: TextStyle(fontSize: 22)),
             subtitle: Text(soustitres[index], style: TextStyle(fontSize: 14)),
-            trailing: IconButton(icon: Icon(Icons.add_circle, size: 30), onPressed: () {
+            trailing: IconButton(icon: Icon(Icons.add_circle, size: 30, color: Color.fromRGBO(25, 50, 57, 1),), onPressed: () {
               showDialog(
                 context: context,
                 builder: (BuildContext context) {
@@ -111,7 +111,7 @@ class BodyLayoutState extends State<BodyLayout> {
                                   "Échanger",
                                   style: TextStyle(color: Colors.white),
                                 ),
-                                color: const Color(0xFF404A5C),
+                                color: const Color.fromRGBO(25, 50, 57, 9),
                               ),
                             ),
                             SizedBox(
@@ -123,7 +123,7 @@ class BodyLayoutState extends State<BodyLayout> {
                                   "Attendre",
                                   style: TextStyle(color: Colors.white),
                                 ),
-                                color: const Color(0xFF404A5C),
+                                color: const Color.fromRGBO(25, 50, 57, 9),
                               ),
                             )
                           ],
