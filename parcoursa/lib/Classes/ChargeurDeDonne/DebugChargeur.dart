@@ -23,7 +23,7 @@ class DebugChargeur implements IChargeDonnees {
       break;
       
       case VILLE_SUPPORTE.QUEBEC:{ //from https://www.donneesquebec.ca/recherche/fr/dataset/vque_14/resource/8902c982-bbb6-4e84-814a-550d094c0bae
-        balises.add(new Balise(46.78121912141851, -71.27423910960336, "Université Laval", "Animée par un esprit d’innovation et la recherche de l’excellence, l’Université Laval a, au fil des ans, formé et diplômé plus de 312 000 personnes qui, chacune à leur façon, ont contribué au progrès de leur communauté et de la société.", "études", 500, "assets/universite_1.jpg"));
+        balises.add(new Balise(46.78121912141851, -71.27423910960336, "Université Laval", "Animée par un esprit d’innovation et la recherche de l’excellence, l’Université Laval a, au fil des ans, formé et diplômé plus de 312 000 personnes.", "études", 500, "assets/universite_1.jpg"));
         balises.add(new Balise(46.78643687491965, -71.28728561967382, "CEGEP de Sainte-Foy", "Le Cégep de Sainte-Foy accueille chaque année près de 10 000 étudiants, que ce soit à l’enseignement régulier ou à la formation continue."));
         balises.add(new Balise(46.790931, -71.285139, "Laser Game Evolution", "Laser Tag"));
         balises.add(new Balise(46.79210028470518, -71.27609919318222, "Centre de glisse Myrand", "Centres de plein air"));
@@ -32,7 +32,7 @@ class DebugChargeur implements IChargeDonnees {
       break;
 
       case VILLE_SUPPORTE.MONTREAL: //https://www.donneesquebec.ca/recherche/fr/dataset/vmtl-lieux-publics-climatises/resource/ee441632-5530-4840-9bf7-cd4a3e7ac81c
-        balises.add(new Balise(45.5080449591, -73.8268109932, "Riverdale High school", "l5060 boulevard Sources"));
+        balises.add(new Balise(45.5080449591, -73.8268109932, "Riverdale High school", "l5060 boulevard Sources", "t43hgtr4", 100, "assets/ecole_1.jpg"));
         balises.add(new Balise(45.5099501052, -73.8229949577, "Sportplex 4 glaces Pierrefonds", "14700 boulevard Pierrefonds"));
         balises.add(new Balise(45.4956051385, -73.8467913492, "Bibliothèque de Cartierville", "5900 rue de Salaberry"));
       break;
@@ -94,7 +94,7 @@ class DebugChargeur implements IChargeDonnees {
       break;
       
       case VILLE_SUPPORTE.QUEBEC: { //from https://www.donneesquebec.ca/recherche/fr/dataset/vque_32/resource/8520a7d4-ab21-4e46-ae31-eeb090e3204c
-        balises.add(new Balise(46.780515, -71.358434, "Parc Robitaille", "De La Peltrie, 1585 Rue", "start", 140, "asstets/parc-robitaillejpg"));
+        balises.add(new Balise(46.780515, -71.358434, "Parc Robitaille", "De La Peltrie, 1585 Rue", "start", 140, "assets/parc-robitaille.jpg"));
         balises.add(new Balise(46.774674, -71.369718, "Parc des Primevères", "Super parc familial"));
         balises.add(new Balise(46.772400, -71.364024, "Parc de Campigny", "Diverses activités sont organisées à ce parc."));
         balises.add(new Balise(46.766196, -71.362635, "Parc des Sources", "Parc tout près de l'école privée Les sources."));
