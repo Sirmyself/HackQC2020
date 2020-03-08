@@ -46,7 +46,7 @@ class Profil extends StatelessWidget {
     TextStyle _nameTextStyle = TextStyle(
       fontFamily: 'Roboto',
       color: Colors.black,
-      fontSize: 28.0,
+      fontSize: 45.0,
       fontWeight: FontWeight.w700,
     );
 
