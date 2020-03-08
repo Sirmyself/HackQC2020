@@ -49,7 +49,7 @@ class _BalisesState extends State<Balises> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
-                "parcour",
+                "parcours",
                 style: TextStyle(
                   fontSize: 63,
                   fontWeight: FontWeight.w900,
