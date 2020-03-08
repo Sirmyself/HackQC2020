@@ -43,9 +43,6 @@ class _HomeState extends State<Home> {
     balise = GeoHelper.getBaliseFromPoint(
         position.latitude, position.longitude, 0.01);
 
-        print(balise.getLatitude());
-        print(balise.getLongitude());
-
     if (balise != null) {
 
       initialPosition = position;
