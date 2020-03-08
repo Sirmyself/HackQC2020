@@ -105,7 +105,7 @@ class Profil extends StatelessWidget {
   }
 
   Widget _buildStatItemClickable(String label, String count, BuildContext
-      context) {
+      context, String where ) {
     TextStyle _statLabelTextStyle = TextStyle(
       fontFamily: 'Roboto',
       color: Colors.black,
@@ -124,7 +124,7 @@ class Profil extends StatelessWidget {
       children: <Widget>[
         InkWell(
           onTap: () {
-            Navigator.of(context).pushNamed('/succes');
+            Navigator.of(context).pushNamed(where);
           },
           child: Text(
             count,
@@ -150,8 +150,8 @@ class Profil extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           _buildStatItem("Points", _points),
-          _buildStatItem("Lieux visités", _lieuVisites),
-          _buildStatItemClickable("Succès", _sucess, context),
+          _buildStatItemClickable("Lieux visités", _lieuVisites, context, '/visites'),
+          _buildStatItemClickable("Succès", _sucess, context, '/succes'),
         ],
       ),
     );
