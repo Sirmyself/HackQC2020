@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:parcoursa/BottomNavigation.dart';
-import 'package:parcoursa/Classes/Promotion.dart';
+import 'package:line_icons/line_icons.dart';
+import 'Carte.dart';
+import 'decouverte.dart';
+import 'profil.dart';
 import 'package:parcoursa/Classes/Utilisateur.dart';
 import 'dart:math';
 
@@ -19,6 +21,16 @@ class Offre extends StatefulWidget {
 }
 
 class _OffreState extends State<Offre> {
+  int _currentIndex = 2;
+
+  final List<Widget> _children = [Trending(), Carte(), Profil()];
+
+  void onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,12 +38,31 @@ class _OffreState extends State<Offre> {
       padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
       child: Stack(
         children: <Widget>[
-          BottomNavagation(),
+          Scaffold(
+            bottomNavigationBar: BottomNavigationBar(
+              onTap: onTabTapped, // new
+              currentIndex: _currentIndex, // new
+              items: [
+                BottomNavigationBarItem(
+                  icon: new Icon(LineIcons.globe),
+                  title: new Text('Découverte'),
+                ),
+                BottomNavigationBarItem(
+                  icon: new Icon(LineIcons.map),
+                  title: new Text('Carte'),
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(LineIcons.user),
+                  title: Text('Profil'),
+                )
+              ],
+            ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.fromLTRB(10.0, 25.0, 10.0, 0),
+                padding: EdgeInsets.fromLTRB(10.0, 50.0, 10.0, 0),
                 child: Text(
                   "Offres",
                   style: TextStyle(
@@ -68,7 +99,7 @@ class BodyLayoutState extends State<BodyLayout> {
 
   Widget _myListView() {
     return ListView.builder(
-      itemCount: promotions.length,
+      itemCount: offresActives.length,
       itemBuilder: (context, index) {
         return Card(
           //                           <-- Card widget
@@ -77,12 +108,10 @@ class BodyLayoutState extends State<BodyLayout> {
           elevation: 3.0,
           child: ListTile(
             leading: CircleAvatar(
-              child: Text(chiffreRandom().toString()),
+              child: Text(offresActives[index].point.toString()),
             ),
-            title:
-                Text(promotions[index].titre, style: TextStyle(fontSize: 22)),
-            subtitle: Text(promotions[index].description,
-                style: TextStyle(fontSize: 14)),
+            title: Text(offresActives[index].titre, style: TextStyle(fontSize: 22)),
+            subtitle: Text(offresActives[index].description, style: TextStyle(fontSize: 14)),
             trailing: IconButton(
                 icon: Icon(Icons.add_circle, size: 30),
                 onPressed: () {
@@ -114,9 +143,9 @@ class BodyLayoutState extends State<BodyLayout> {
                                     child: RaisedButton(
                                       onPressed: () {
                                         setState(() {
-                                          utilisateur.coupons
-                                              .add(promotions.elementAt(index));
-                                          promotions.removeAt(index);
+                                          print(index);
+                                          utilisateur.offres.add(offresActives.removeAt(index));
+                                          //icons.removeAt(index);
                                         });
                                         Navigator.of(context).pop();
                                       },
@@ -124,7 +153,7 @@ class BodyLayoutState extends State<BodyLayout> {
                                         "Échanger",
                                         style: TextStyle(color: Colors.white),
                                       ),
-                                      color: const Color(0xFF404A5C),
+                                color: const Color.fromRGBO(25, 50, 57, 9),
                                     ),
                                   ),
                                   SizedBox(
@@ -137,7 +166,7 @@ class BodyLayoutState extends State<BodyLayout> {
                                         "Attendre",
                                         style: TextStyle(color: Colors.white),
                                       ),
-                                      color: const Color(0xFF404A5C),
+                                color: const Color.fromRGBO(25, 50, 57, 9),
                                     ),
                                   )
                                 ],
@@ -152,9 +181,4 @@ class BodyLayoutState extends State<BodyLayout> {
       },
     );
   }
-}
-
-int chiffreRandom() {
-  var randomizer = new Random(); // can get a seed as a parameter
-  return randomizer.nextInt(10000);
 }

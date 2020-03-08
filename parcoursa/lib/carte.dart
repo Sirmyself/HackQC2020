@@ -32,80 +32,83 @@ class _CarteState extends State<Carte> {
     return Column(
       children: <Widget>[
         Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
-              child: Column(
-                children: <Widget>[
-                  Text("Public"),
-                  Checkbox(
-                    value: _public,
-                    onChanged: (bool value) {
-                      setState(() {
-                        _public = value;
-                      });
-                    },
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
-              child: Column(
-                children: <Widget>[
-                  Text("Art"),
-                  Checkbox(
-                    value: _art,
-                    onChanged: (bool value) {
-                      setState(() {
-                        _art = value;
-                      });
-                    },
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
-              child: Column(
-                children: <Widget>[
-                  Text("Parc"),
-                  Checkbox(
-                    value: _parc,
-                    onChanged: (bool value) {
-                      setState(() {
-                        _parc = value;
-                      });
-                    },
-                  )
-                ],
+              padding: EdgeInsets.fromLTRB(10, 50, 0, 0),
+                          child: Text(
+                "Carte",
+                style: TextStyle(
+                  fontSize: 63,
+                  fontWeight: FontWeight.w900,
+                ),
               ),
             ),
           ],
         ),
-        Padding(
-          padding: EdgeInsets.fromLTRB(0, 55, 0, 0),
-          child: Column(
-            children: <Widget>[
-              DropdownButton<String>(
-                value: _villeSelectionne,
-                items: _villes.map((String val) {
-                  return new DropdownMenuItem<String>(
-                    value: val,
-                    child: new Text(val),
-                  );
-                }).toList(),
-                hint: Text("Choisissez une ville"),
-                onChanged: (String nvVal) {
-                  this.setState(() {
-                    _villeSelectionne = nvVal;
-                  });
-                },
-              )
-            ],
-          ),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                Text("Public"),
+                Checkbox(
+                  value: _public,
+                  onChanged: (bool value) {
+                    setState(() {
+                      _public = value;
+                    });
+                  },
+                )
+              ],
+            ),
+            Column(
+              children: <Widget>[
+                Text("Art"),
+                Checkbox(
+                  value: _art,
+                  onChanged: (bool value) {
+                    setState(() {
+                      _art = value;
+                    });
+                  },
+                )
+              ],
+            ),
+            Column(
+              children: <Widget>[
+                Text("Parc"),
+                Checkbox(
+                  value: _parc,
+                  onChanged: (bool value) {
+                    setState(() {
+                      _parc = value;
+                    });
+                  },
+                )
+              ],
+            ),
+          ],
+        ),
+        Column(
+          children: <Widget>[
+            DropdownButton<String>(
+              value: _villeSelectionne,
+              items: _villes.map((String val) {
+                return new DropdownMenuItem<String>(
+                  value: val,
+                  child: new Text(val),
+                );
+              }).toList(),
+              hint: Text("Choisissez une ville"),
+              onChanged: (String nvVal) {
+                this.setState(() {
+                  _villeSelectionne = nvVal;
+                });
+              },
+            )
+          ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -137,18 +140,13 @@ class _CarteState extends State<Carte> {
   }
 
   Set<Marker> meMarker() {
-
     VILLE_SUPPORTE ville = VILLE_SUPPORTE.RIMOUSKI;
 
-    if(_villeSelectionne == "Montréal")
-    {
+    if (_villeSelectionne == "Montréal") {
       ville = VILLE_SUPPORTE.MONTREAL;
-    }
-    else if(_villeSelectionne == "Québec")
-    {
+    } else if (_villeSelectionne == "Québec") {
       ville = VILLE_SUPPORTE.QUEBEC;
-    }
-    else {
+    } else {
       ville = VILLE_SUPPORTE.RIMOUSKI;
     }
 
@@ -158,10 +156,9 @@ class _CarteState extends State<Carte> {
 
     Set<Marker> toutMarker = Set<Marker>();
 
-    if (_public  && listPublic != null) {
+    if (_public && listPublic != null) {
       for (int i = 0; i < listPublic.length; ++i) {
-        if (listPublic[i] != null)
-        {
+        if (listPublic[i] != null) {
           toutMarker.add(listPublic[i].getMarker());
         }
       }
@@ -169,41 +166,36 @@ class _CarteState extends State<Carte> {
 
     if (_art && listArt != null) {
       for (int i = 0; i < listArt.length; ++i) {
-        if (listArt[i] != null)
-        {
+        if (listArt[i] != null) {
           toutMarker.add(listArt[i].getMarker());
         }
       }
     }
 
-    if (_parc  && listParc != null) {
+    if (_parc && listParc != null) {
       for (int i = 0; i < listParc.length; ++i) {
-         if (listParc[i] != null)
-        {
+        if (listParc[i] != null) {
           toutMarker.add(listParc[i].getMarker());
         }
       }
     }
 
     // Ajoue position actuelle
-    if (initialPosition == null)
-    {
+    if (initialPosition == null) {
       obtenirPositionInitial();
-    }
-    else
-    {
+    } else {
       toutMarker.add(new Marker(
-      markerId: MarkerId("1000000"),
-      position: LatLng(initialPosition.latitude, initialPosition.longitude),
-      infoWindow: InfoWindow(title: "Position actuelle", snippet: "Position actuelle")));
+          markerId: MarkerId("1000000"),
+          position: LatLng(initialPosition.latitude, initialPosition.longitude),
+          infoWindow: InfoWindow(
+              title: "Position actuelle", snippet: "Position actuelle")));
     }
 
     return toutMarker;
   }
 }
 
-void obtenirPositionInitial() async
-{
-  initialPosition = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+void obtenirPositionInitial() async {
+  initialPosition = await Geolocator()
+      .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
 }
-

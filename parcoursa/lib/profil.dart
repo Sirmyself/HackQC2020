@@ -29,7 +29,7 @@ class Profil extends StatelessWidget {
         height: 140.0,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/profil_1.jpg'),
+            image: AssetImage('assets/profilJerome.jpg'),
             fit: BoxFit.cover,
           ),
           borderRadius: BorderRadius.circular(80.0),
@@ -246,7 +246,7 @@ class Profil extends StatelessWidget {
                 height: 45.0,
                 decoration: BoxDecoration(
                   border: Border.all(),
-                  color: Color(0xFF404A5C),
+                  color: Color.fromRGBO(25, 50, 57, 50),
                   borderRadius: BorderRadius.circular(10.0)
                 ),
                 child: Center(
