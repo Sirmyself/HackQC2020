@@ -258,12 +258,13 @@ class _ParcourState extends State<Parcour> {
           latlng.longitude.toString() +
           "\n";
     }
-    throw Exception(fuckEverthing);
+    throw Exception(fuckEverthing);/*
     Polyline route = new Polyline(
         polylineId: PolylineId("null"),
         points: latlngPoly,
         width: 20,
         color: Colors.blue);
-    map.polylines.add(route);
+    map.polylines.add(route);*/
   }
 }
+

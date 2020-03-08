@@ -39,7 +39,80 @@ class DebugChargeur implements IChargeDonnees {
   }
 
   @override
-  List<Balise> getBalisesArt([VILLE_SUPPORTE pVille = VILLE_SUPPORTE.RIMOUSKI]) {
+  List<Balise> getBalisesArt([VILLE_SUPPORTE pVille = VILLE_SUPPORTE.RIMOUSKI]) { //from https://www.donneesquebec.ca/recherche/fr/dataset/art-public/resource/ddbb2a46-0995-4256-ae44-7d68ffc5b651
+    List<Balise> balises = new List<Balise>();
+
+    switch(pVille) {
+      case VILLE_SUPPORTE.RIMOUSKI: { //from https://www.donneesquebec.ca/recherche/fr/dataset/art-public/resource/ddbb2a46-0995-4256-ae44-7d68ffc5b651
+        balises.add(new Balise(48.4377210186255, -68.5374970178453, "Les bâtisseurs", "Collection d’art public de la Ville de Rimouski. Béton armé coloré dans la masse du moyen d’oxyde de fer", "démarer le parcour", 200, "assets/statue_2.jpg"));
+        balises.add(new Balise(48.4410633548442, -68.5360118385178, "L'allé des sculptures - Première envolée", "Fibre de verre", "", 100, "assets/statue_3.jpg"));
+        balises.add(new Balise(48.4412370977451, -68.5359372014246, "L'allé des sculptures - Les trois patineuses", "fibre de verre", "", 100, "assets/statue_2.jpg"));
+        balises.add(new Balise(48.4407761937531, -68.5361009245298, "L'allé des sculptures - Couple enjoué", "Attrait touristique et point d'intérêt!!", "", 100, "assets/statue_4.jpg"));
+        balises.add(new Balise(48.4404612849461, -68.5362866253372, "L'allé des sculptures - La rencontre sous-marine", "Attrait touristique et point d'intérêt!! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a mi sed.", "", 1000, "assets/statue_2.jpg"));
+        balises.add(new Balise(48.4406295680677, -68.5361828950075, "L'allé des sculptures - Jeu aquatique", "Attrait touristique et point d'intérêt!! Sed pharetra nulla sit,consectetur adipiscing elit.", "", 500, "assets/statue_3.jpg"));
+      } 
+      break;
+      
+      case VILLE_SUPPORTE.QUEBEC: { //non trouvée
+        balises = null;
+      }
+      break;
+      
+      case VILLE_SUPPORTE.MONTREAL: { // from https://www.donneesquebec.ca/recherche/fr/dataset/vmtl-art-public-information-sur-les-oeuvres-de-la-collection-municipale/resource/18705524-c8a6-49a0-bca7-92f493e6d329
+        balises.add(new Balise(431965, 16604, "", "", "start", ));
+        balises.add(new Balise(431965, 16604, "", "", "start", ));
+        balises.add(new Balise(431965, 16604, "", "", "start", ));
+        balises.add(new Balise(431965, 16604, "", "", "start", ));
+        balises.add(new Balise(431965, 16604, "", "", "start", ));
+        balises.add(new Balise(431965, 16604, "", "", "start", ));
+        balises.add(new Balise(431965, 16604, "", "", "start", ));
+        balises.add(new Balise(431965, 16604, "", "", "start", ));
+        balises.add(new Balise(431965, 16604, "", "", "start", ));
+      }
+      break;
+    }
+    
+    
+    return balises;
+  }
+
+  @override
+  List<Balise> getBalisesParc([VILLE_SUPPORTE pVille = VILLE_SUPPORTE.RIMOUSKI]) {
+    List<Balise> balises = new List<Balise>();
+
+    switch(pVille) {
+      case VILLE_SUPPORTE.RIMOUSKI: { //from https://www.donneesquebec.ca/recherche/fr/dataset/parcs-et-espaces-verts-rim/resource/4d51ea7e-49d7-4c35-a517-18cca1de3d6b
+        balises.add(new Balise(48.436888, -68.512581, "Parc rue Monseigneur-Langis", "Voisinage", "", 100, "assets/parc_1.jpg"));
+        balises.add(new Balise(48.440695, -68.516400, "Complexe sportif Guillaume-Leblanc", "Complexe sportif municipal"));
+        balises.add(new Balise(48.437355, -68.520630, "Parc Lepage", "Parc Urbain", "fw9320fc", 450));
+        balises.add(new Balise(48.431965, -68.516604, "Parc avenue Sirois", "Voisinage"));
+      }
+      break;
+      
+      case VILLE_SUPPORTE.QUEBEC: { //from https://www.donneesquebec.ca/recherche/fr/dataset/vque_32/resource/8520a7d4-ab21-4e46-ae31-eeb090e3204c
+        balises.add(new Balise(46.780515, -71.358434, "Parc Robitaille", "De La Peltrie, 1585 Rue", "start", 140, "asstets/parc-robitaillejpg"));
+        balises.add(new Balise(46.774674, -71.369718, "Parc des Primevères", "Super parc familial"));
+        balises.add(new Balise(46.772400, -71.364024, "Parc de Campigny", "Diverses activités sont organisées à ce parc."));
+        balises.add(new Balise(46.766196, -71.362635, "Parc des Sources", "Parc tout près de l'école privée Les sources."));
+        balises.add(new Balise(46.766167, -71.348043, "Parc Chaudière", "Parc."));
+      }
+      break;
+      
+      case VILLE_SUPPORTE.MONTREAL: //from https://www.donneesquebec.ca/recherche/fr/dataset/vmtl-grands-parcs-parcs-d-arrondissements-et-espaces-publics/resource/0c0ad27c-b98d-42d8-908f-8458fb350ff0
+
+        break;
+    }
+
+    return balises;
+  }
+
+
+/*
+  balises.add(new Balise(431965, 16604, "", "", "start", ));
+  balises.add(new Balise(431965, 16604, "", "", "start", ));
+  balises.add(new Balise(431965, 16604, "", "", "start", ));
+ */
+
   Trajet getTrajetPublic() {
     List<Polyline> chemin = new List<Polyline>();
     
@@ -145,80 +218,4 @@ class DebugChargeur implements IChargeDonnees {
     Trajet trajet = new Trajet(chemin);
     return trajet;
   }
-
-
-  @override
-  List<Balise> getBalisesArt([VILLE_SUPPORTE pVille = VILLE_SUPPORTE.RIMOUSKI]) { //from https://www.donneesquebec.ca/recherche/fr/dataset/art-public/resource/ddbb2a46-0995-4256-ae44-7d68ffc5b651
-    List<Balise> balises = new List<Balise>();
-
-    switch(pVille) {
-      case VILLE_SUPPORTE.RIMOUSKI: { //from https://www.donneesquebec.ca/recherche/fr/dataset/art-public/resource/ddbb2a46-0995-4256-ae44-7d68ffc5b651
-        balises.add(new Balise(48.4377210186255, -68.5374970178453, "Les bâtisseurs", "Collection d’art public de la Ville de Rimouski. Béton armé coloré dans la masse du moyen d’oxyde de fer", "démarer le parcour", 200, "assets/statue_2.jpg"));
-        balises.add(new Balise(48.4410633548442, -68.5360118385178, "L'allé des sculptures - Première envolée", "Fibre de verre", "", 100, "assets/statue_3.jpg"));
-        balises.add(new Balise(48.4412370977451, -68.5359372014246, "L'allé des sculptures - Les trois patineuses", "fibre de verre", "", 100, "assets/statue_2.jpg"));
-        balises.add(new Balise(48.4407761937531, -68.5361009245298, "L'allé des sculptures - Couple enjoué", "Attrait touristique et point d'intérêt!!", "", 100, "assets/statue_4.jpg"));
-        balises.add(new Balise(48.4404612849461, -68.5362866253372, "L'allé des sculptures - La rencontre sous-marine", "Attrait touristique et point d'intérêt!! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a mi sed.", "", 1000, "assets/statue_2.jpg"));
-        balises.add(new Balise(48.4406295680677, -68.5361828950075, "L'allé des sculptures - Jeu aquatique", "Attrait touristique et point d'intérêt!! Sed pharetra nulla sit,consectetur adipiscing elit.", "", 500, "assets/statue_3.jpg"));
-      } 
-      break;
-      
-      case VILLE_SUPPORTE.QUEBEC: { //non trouvée
-        balises = null;
-      }
-      break;
-      
-      case VILLE_SUPPORTE.MONTREAL: { // from https://www.donneesquebec.ca/recherche/fr/dataset/vmtl-art-public-information-sur-les-oeuvres-de-la-collection-municipale/resource/18705524-c8a6-49a0-bca7-92f493e6d329
-        balises.add(new Balise(431965, 16604, "", "", "start", ));
-        balises.add(new Balise(431965, 16604, "", "", "start", ));
-        balises.add(new Balise(431965, 16604, "", "", "start", ));
-        balises.add(new Balise(431965, 16604, "", "", "start", ));
-        balises.add(new Balise(431965, 16604, "", "", "start", ));
-        balises.add(new Balise(431965, 16604, "", "", "start", ));
-        balises.add(new Balise(431965, 16604, "", "", "start", ));
-        balises.add(new Balise(431965, 16604, "", "", "start", ));
-        balises.add(new Balise(431965, 16604, "", "", "start", ));
-      }
-      break;
-    }
-    
-    
-    return balises;
-  }
-
-  @override
-  List<Balise> getBalisesParc([VILLE_SUPPORTE pVille = VILLE_SUPPORTE.RIMOUSKI]) {
-    List<Balise> balises = new List<Balise>();
-
-    switch(pVille) {
-      case VILLE_SUPPORTE.RIMOUSKI: { //from https://www.donneesquebec.ca/recherche/fr/dataset/parcs-et-espaces-verts-rim/resource/4d51ea7e-49d7-4c35-a517-18cca1de3d6b
-        balises.add(new Balise(48.436888, -68.512581, "Parc rue Monseigneur-Langis", "Voisinage", "", 100, "assets/parc_1.jpg"));
-        balises.add(new Balise(48.440695, -68.516400, "Complexe sportif Guillaume-Leblanc", "Complexe sportif municipal"));
-        balises.add(new Balise(48.437355, -68.520630, "Parc Lepage", "Parc Urbain", "fw9320fc", 450));
-        balises.add(new Balise(48.431965, -68.516604, "Parc avenue Sirois", "Voisinage"));
-      }
-      break;
-      
-      case VILLE_SUPPORTE.QUEBEC: { //from https://www.donneesquebec.ca/recherche/fr/dataset/vque_32/resource/8520a7d4-ab21-4e46-ae31-eeb090e3204c
-        balises.add(new Balise(46.780515, -71.358434, "Parc Robitaille", "De La Peltrie, 1585 Rue", "start", 140, "asstets/parc-robitaillejpg"));
-        balises.add(new Balise(46.774674, -71.369718, "Parc des Primevères", "Super parc familial"));
-        balises.add(new Balise(46.772400, -71.364024, "Parc de Campigny", "Diverses activités sont organisées à ce parc."));
-        balises.add(new Balise(46.766196, -71.362635, "Parc des Sources", "Parc tout près de l'école privée Les sources."));
-        balises.add(new Balise(46.766167, -71.348043, "Parc Chaudière", "Parc."));
-      }
-      break;
-      
-      case VILLE_SUPPORTE.MONTREAL: //from https://www.donneesquebec.ca/recherche/fr/dataset/vmtl-grands-parcs-parcs-d-arrondissements-et-espaces-publics/resource/0c0ad27c-b98d-42d8-908f-8458fb350ff0
-
-        break;
-    }
-
-
-    return balises;
-  }
 }
-
-/*
-  balises.add(new Balise(431965, 16604, "", "", "start", ));
-  balises.add(new Balise(431965, 16604, "", "", "start", ));
-  balises.add(new Balise(431965, 16604, "", "", "start", ));
- */
