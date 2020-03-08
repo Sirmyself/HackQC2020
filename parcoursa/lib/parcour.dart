@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:parcoursa/Classes/ChargeurDeDonne/DebugChargeur.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:google_map_polyline/google_map_polyline.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:parcoursa/Interfaces/IChargeDonnees.dart';
 import 'Balises.dart';
@@ -221,7 +220,6 @@ class _ParcourState extends State<Parcour> {
                         ),
                         onMapCreated: (GoogleMapController controller) {
                           _controller.complete(controller);
-                          //fuck();
                         },
                         markers: meMarker(),
                         polylines: meRoutes(),
@@ -236,7 +234,22 @@ class _ParcourState extends State<Parcour> {
       );
 
   Set<Marker> meMarker() {
-    var listMarker = _charger.getBalisesPublic();
+    var listMarker;
+    switch ("${widget.title}") {
+      case "Paul-Hubert":
+        listMarker = _charger.getBalisesPublic(VILLE_SUPPORTE.RIMOUSKI);
+        break;
+      case "Les bâtisseurs":
+        listMarker = _charger.getBalisesParc(VILLE_SUPPORTE.RIMOUSKI);
+        break;
+
+      case "Happy Jones":
+        listMarker = _charger.getBalisesArt(VILLE_SUPPORTE.RIMOUSKI);
+        break;
+      default:
+        listMarker = {};
+    }
+    
     Set<Marker> toutMarker = Set<Marker>();
     for (var marker in listMarker) {
       toutMarker.add(marker.getMarker());
@@ -245,40 +258,30 @@ class _ParcourState extends State<Parcour> {
   }
 
   Set<Polyline> meRoutes() {
-    var trajet = _charger.getTrajetPublic();
+    var trajet;
+    switch ("${widget.title}") {
+      case "Paul-Hubert":
+        trajet = _charger.getTrajetPublic(VILLE_SUPPORTE.RIMOUSKI);
+        break;
+      case "Les bâtisseurs":
+        //trajet = _charger.getTrajetParc(VILLE_SUPPORTE.RIMOUSKI);
+        break;
+
+      case "Happy Jones":
+        trajet = _charger.getTrajetArt(VILLE_SUPPORTE.RIMOUSKI);
+        break;
+      default:
+        trajet = null;
+    }
     Set<Polyline> toutPolyline = Set<Polyline>();
     var toutChemin = trajet.getChemin();
     for (var poly in toutChemin) {
-      toutPolyline.add(poly);
+     toutPolyline.add(poly);
     }
 
     return toutPolyline;
   }
 
-  void fuck() async {
-    var listMarker = _charger.getBalisesPublic();
-    GoogleMapPolyline polylineMaker =
-        GoogleMapPolyline(apiKey: "AIzaSyBrnMUAS_68i_fPxTaumVgbjJpWn-jBgI4");
-    var latlngPoly = await polylineMaker.getCoordinatesWithLocation(
-        origin: listMarker[3].getLatLng(),
-        destination: listMarker[4].getLatLng(),
-        mode: RouteMode.walking);
-    String fuckEverthing = "\n";
-    for (var latlng in latlngPoly) {
-      fuckEverthing = fuckEverthing +
-          "DATA " +
-          latlng.latitude.toString() +
-          "," +
-          latlng.longitude.toString() +
-          "\n";
-    }
-    throw Exception(fuckEverthing);/*
-    Polyline route = new Polyline(
-        polylineId: PolylineId("null"),
-        points: latlngPoly,
-        width: 20,
-        color: Colors.blue);
-    map.polylines.add(route);*/
-  }
+ 
 }
 

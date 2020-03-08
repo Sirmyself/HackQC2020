@@ -14,7 +14,7 @@ abstract class IChargeDonnees {
   List<Balise> getBalisesArt([VILLE_SUPPORTE pVille = VILLE_SUPPORTE.RIMOUSKI]);
   List<Balise> getBalisesParc([VILLE_SUPPORTE pVille = VILLE_SUPPORTE.RIMOUSKI]);
   
-  Trajet getTrajetPublic();
-  //Trajet getTrajetArt();
+  Trajet getTrajetPublic([VILLE_SUPPORTE pVille = VILLE_SUPPORTE.RIMOUSKI]);
+  Trajet getTrajetArt([VILLE_SUPPORTE pVille = VILLE_SUPPORTE.RIMOUSKI]);
   //Trajet getTrajetParc();
 }
