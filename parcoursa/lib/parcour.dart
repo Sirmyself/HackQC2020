@@ -247,7 +247,7 @@ class _ParcourState extends State<Parcour> {
         listMarker = _charger.getBalisesParc(VILLE_SUPPORTE.RIMOUSKI);
         break;
       default:
-        listMarker = {};
+        listMarker = _charger.getBalisesParc(VILLE_SUPPORTE.RIMOUSKI);
     }
     
     Set<Marker> toutMarker = Set<Marker>();
@@ -266,12 +266,8 @@ class _ParcourState extends State<Parcour> {
       case "Les bâtisseurs":
         trajet = _charger.getTrajetArt(VILLE_SUPPORTE.RIMOUSKI);
         break;
-
-      case "Happy Jones":
-        //trajet = _charger.getTrajetParc(VILLE_SUPPORTE.RIMOUSKI);
-        break;
       default:
-        trajet = null;
+        trajet = _charger.getTrajetArt(VILLE_SUPPORTE.RIMOUSKI);;
     }
     Set<Polyline> toutPolyline = Set<Polyline>();
     if(trajet != null)
