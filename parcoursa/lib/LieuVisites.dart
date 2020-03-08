@@ -8,24 +8,26 @@ class Visites extends StatefulWidget {
 }
 
 Widget _myListViewVisites(BuildContext context) {
-  final succes = ['Amateur d\'art', 'Amateur de parc', 'Touriste local'];
-  final descriptionSucces = [
-    'Visiter une oeuvre d\'art',
-    'Visiter un parc',
-    'Terminer un parcours suggéré'
+  final listVisite = ['Paul-Hubert', 'Plaza Arthure-buies', 'Colisée Financière Sunlife', 'Les Galeries GP', 'Cegep de Rimouski'];
+  final descriptionsVisites = [
+    'Une des nombreuses écoles secondaire de Rimouski!!',
+    'Un des nombreux centres d\'achats de Rimouski!!',
+    'Aréna de 4 300 sièges.; Superficie de glace de 85 par 200 pieds.',
+    'Attrait touristique et point d\'intérêt!!',
+    'Un des nombreux établissements d\'études suppérieures de Rimouski!!'
   ];
 
-  final icons = [Icons.bookmark, Icons.bookmark_border, Icons.bookmark_border];
+  final icons = [Icons.bookmark, Icons.bookmark_border, Icons.bookmark_border, Icons.bookmark_border, Icons.bookmark_border];
 
   return ListView.builder(
-    itemCount: succes.length,
+    itemCount: listVisite.length,
     itemBuilder: (context, index) {
       return Card(
         color: index == 0 ? Colors.green : Colors.white,
         child: ListTile(
             leading: Icon(icons[index]),
-            title: Text(succes[index]),
-            subtitle: Text(descriptionSucces[index])),
+            title: Text(listVisite[index]),
+            subtitle: Text(descriptionsVisites[index])),
       );
     },
   );
@@ -60,7 +62,7 @@ class _VisitesState extends State<Visites> {
               Padding(
                 padding: EdgeInsets.fromLTRB(10.0, 100.0, 10.0, 0),
                 child: Text(
-                  "JE",
+                  "Lieu visités à Rimouski",
                   style: TextStyle(
                     fontSize: 18,
                     fontStyle: FontStyle.italic,
