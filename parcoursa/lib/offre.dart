@@ -6,9 +6,9 @@ import 'dart:math';
 
 List promotions = [
   new Promotion(
-      'Aux Bienfaits', 'Obtenez un (1) bébé cornet à l\'achat d' 'un sundae.'),
+      'Aux Bienfaits', 'Obtenez un (1) bébé cornet à l\'achat d\'un sundae.'),
   new Promotion('Cantine Le Rallye',
-      'Obtenez un hot-dog gratuitement à l\'achat d\'un trio poutine')
+      'Obtenez un (1) hot-dog gratuitement à l\'achat d\'un trio poutine.')
 ];
 
 class Offre extends StatefulWidget {
@@ -59,8 +59,6 @@ class BodyLayout extends StatefulWidget {
 }
 
 class BodyLayoutState extends State<BodyLayout> {
-  //final titres = ['Aux Bienfaits', 'Cantine Le Rallye'];
-  //final soustitres = ['Obtenez un (1) bébé cornet à l\'achat d''un sundae.', 'Obtenez un hot-dog gratuitement à l\'achat d\'un trio poutine'];
   final icons = [Icons.monetization_on, Icons.monetization_on];
 
   @override
@@ -78,7 +76,6 @@ class BodyLayoutState extends State<BodyLayout> {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
           elevation: 3.0,
           child: ListTile(
-            //leading: FlatButton.icon(onPressed: null, icon: Icon(icons[index], size: 30, color: Color(0xFF404A5C),), label: Text('13300')) ,
             leading: CircleAvatar(
               child: Text(chiffreRandom().toString()),
             ),

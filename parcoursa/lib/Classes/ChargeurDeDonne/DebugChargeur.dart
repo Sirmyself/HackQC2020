@@ -1,4 +1,3 @@
-//import 'package:flutter/cupertino.dart';
 import 'package:parcoursa/Interfaces/IChargeDonnees.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/material.dart';
@@ -16,9 +15,9 @@ class DebugChargeur implements IChargeDonnees {
       case VILLE_SUPPORTE.RIMOUSKI: { //from https://www.donneesquebec.ca/recherche/fr/dataset/lieux-publics/resource/d12a3f0b-6438-432d-bb69-de40736945dc
           balises.add(new Balise(48.434771, -68.519395, "Paul-Hubert", "Une des nombreuses écoles secondaires de Rimouski!!", "Démarrer le parcours", 200, "assets/paul.jpg"));
           balises.add(new Balise(48.4338793528, -68.5224824749, "Plaza Arthur-Buies", "Un des nombreux centres d'achats de Rimouski!!"));
-          balises.add(new Balise(48.441415978, -68.5204288478, "Colisée Financière SunLife", "Aréna de 4 300 sièges.; Superficie de glace de 85 par 200 pieds.; Possibilité de faire de la marche ou de la course à pied en périphérie des gradins<br/><br/><u>Patinage libre (pour tous) 1,25 \$</u>:; les samedi de 18 h 55 à 19 h 55.; les dimanche"));
+          balises.add(new Balise(48.441415978, -68.5204288478, "Colisée Financière SunLife", "Aréna de 4 300 sièges; Superficie de glace de 85 par 200 pieds.; Possibilité de faire de la marche ou de la course à pied en périphérie des gradins<br/><br/><u>Patinage libre (pour tous) 1,25 \$</u>; les samedis de 18 h 55 à 19 h 55; les dimanches"));
           balises.add(new Balise(48.4430723877, -68.5217535943, "Les Galeries GP", "Attrait touristique et point d'intérêt!!"));
-          balises.add(new Balise(48.4490715309, -68.527177957, "Cegep de Rimouski", "Un des nombreux établissements d'études suppérieures de Rimouski!!"));
+          balises.add(new Balise(48.4490715309, -68.527177957, "Cegep de Rimouski", "Un des nombreux établissements d'études supérieures de Rimouski!!"));
       }
       break;
       
