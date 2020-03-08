@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parcoursa/Classes/Utilisateur.dart';
 
 class Coupons extends StatefulWidget {
   @override
@@ -8,22 +9,21 @@ class Coupons extends StatefulWidget {
 }
 
 Widget _myListViewCoupons(BuildContext context) {
-  final titres = ['Aux Bienfaits', 'Cantine Le Rallye'];
-  final soustitres = ['zzz', 'aaaaaa'];
+  List promotions = utilisateur.coupons;
 
   final icons = [Icons.monetization_on, Icons.monetization_on];
 
   return ListView.builder(
-    itemCount: titres.length,
+    itemCount: promotions.length,
     itemBuilder: (context, index) {
       return Card(
         //                           <-- Card widget
         child: ListTile(
             leading: Icon(icons[index]),
-            title: Text(titres[index]),
+            title: Text(promotions[index].titre),
             trailing:
                 IconButton(icon: Icon(Icons.credit_card), onPressed: () {}),
-            subtitle: Text(soustitres[index])),
+            subtitle: Text(promotions[index].description)),
       );
     },
   );

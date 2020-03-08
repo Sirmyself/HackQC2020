@@ -22,51 +22,51 @@ List parcours = [
     "nbrBalise": debug.getBalisesArt().length
   },
   {
-    "img": "assets/statue_3.jpg",
-    "title": "Happy Jones",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
+    "img": "assets/riviereduloup_chute.jpg",
+    "title": "Rivière-du-loup",
+    "address": "Plusieurs attraits de Rivière-du-loup",
     "rating": "44",
     "nbrBalise": 4
   },
   {
-    "img": "assets/statue_4.jpg",
-    "title": "Uncle Boons",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
+    "img": "assets/lapocatiere_gare.jpg",
+    "title": "Lapocatière",
+    "address": "Plusieurs attraits de Lapocatière",
     "rating": "50",
     "nbrBalise": 3
   },
   {
-    "img": "assets/chat.jpg",
-    "title": "Happy Jones",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
+    "img": "assets/montjoli_fresques.jpg",
+    "title": "Mont-Joli",
+    "address": "Plusieurs attraits de Mont-Joli",
     "rating": "93",
     "nbrBalise": 10
   },
   {
-    "img": "assets/chat.jpg",
-    "title": "Happy Jones",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
+    "img": "assets/saguenay_maison-deluge.jpg",
+    "title": "Saguenay",
+    "address": "Plusieurs attraits du Saguenay",
     "rating": "18",
     "nbrBalise": 5
   },
   {
-    "img": "assets/chat.jpg",
-    "title": "Happy Jones",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
+    "img": "assets/perce_rocher.jpg",
+    "title": "Percé",
+    "address": "Plusieurs attraits de Percé",
     "rating": "23",
     "nbrBalise": 8
   },
   {
-    "img": "assets/chat.jpg",
-    "title": "Happy Jones",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
+    "img": "assets/quebec_chateau-frontenac.jpg",
+    "title": "Québec",
+    "address": "Plusieurs attraits de Québec",
     "rating": "40",
     "nbrBalise": 7
   },
   {
-    "img": "assets/chat.jpg",
-    "title": "Happy Jones",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
+    "img": "assets/montreal_biodome.jpg",
+    "title": "Montréal",
+    "address": "Plusieurs attraits de Montréal",
     "rating": "45",
     "nbrBalise": 3
   }
