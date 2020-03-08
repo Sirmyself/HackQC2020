@@ -3,6 +3,7 @@ import 'package:line_icons/line_icons.dart';
 import 'favoris.dart';
 import 'package:parcoursa/profil.dart';
 
+int currentIndex = 0;
 
 class BottomNavagation extends StatefulWidget {
   @override
@@ -15,11 +16,10 @@ class _BottomNavagationState extends State<BottomNavagation> {
 
    void onTabTapped(int index) {
     setState(() {
-      _currentIndex = index;
+      currentIndex = index;
     });
   }
 
-  int _currentIndex = 0;
   final List<Widget> _children = [
     PlaceholderWidget(Colors.white),
     PlaceholderWidget(Colors.deepOrange),
@@ -30,10 +30,10 @@ class _BottomNavagationState extends State<BottomNavagation> {
  @override
  Widget build(BuildContext context) {
     return Scaffold(
-      body: _children[_currentIndex], // new
+      body: _children[currentIndex], // new
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTabTapped, // new
-        currentIndex: _currentIndex, // new
+        currentIndex: currentIndex, // new
         items: [
           BottomNavigationBarItem(
             icon: new Icon(LineIcons.globe),
