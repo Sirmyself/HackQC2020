@@ -13,7 +13,7 @@ class Balises extends StatefulWidget {
   @override
   _BalisesState createState() => _BalisesState();
 }
-
+/*
 Widget _buildContainer() {
   return Material(
     color: Colors.blue,
@@ -22,7 +22,7 @@ Widget _buildContainer() {
       child: Container(height: 200, width: 200),
     ),
   );
-}
+}*/
 
 class _BalisesState extends State<Balises> {
   DebugChargeur _charger = DebugChargeur();
@@ -118,11 +118,11 @@ class _BalisesState extends State<Balises> {
   List<Balise> getBalises() {
     if (_charger
         .getBalisesArt()
-        .any((element) => element.nomBalise == widget.title)) ;
+        .any((element) => element.nomBalise == widget.title))
     _charger.getBalisesArt();
     if (_charger
         .getBalisesPublic()
-        .any((element) => element.nomBalise == widget.title)) ;
+        .any((element) => element.nomBalise == widget.title))
     _charger.getBalisesPublic();
     return _charger.getBalisesArt();
   }
