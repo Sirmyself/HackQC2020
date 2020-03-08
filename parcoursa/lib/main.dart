@@ -5,6 +5,7 @@ import 'package:parcoursa/succes.dart';
 import 'package:parcoursa/LieuVisites.dart';
 import 'home.dart';
 import 'offre.dart';
+import 'points.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         '/offre': (context) => Offre(),
         '/coupons': (context) => Coupons(),
         '/visites' : (context) => Visites(),
+        '/points' : (context) => Points(),
         '/succes': (context) => Succes(),
         '/navigationparcours': (context) => NavigationParcours(),
       },

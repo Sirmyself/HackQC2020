@@ -1,96 +1,81 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:parcoursa/Classes/ChargeurDeDonne/DebugChargeur.dart';
-import 'dart:ui';
 import 'package:line_icons/line_icons.dart';
 
 class Points extends StatefulWidget {
-
   @override
-  _PointsState createState() => _PointsState();
+  State<StatefulWidget> createState() {
+    return _PointsState();
+  }
+}
+
+Widget _myListViewPoints(BuildContext context) {
+  final succes = ['25 points', '35 points', '50 points', '15 points', '25 points', '23 points'];
+  final descriptionSucces = [
+    '7 mars',
+    '7 mars',
+    '27 février',
+    '23 février',
+    '15 février',
+    '30 janvier'
+  ];
+
+  return ListView.builder(
+    itemCount: succes.length,
+    itemBuilder: (context, index) {
+      return Card(
+        color: Colors.white,
+        child: ListTile(
+            leading: Icon(LineIcons.dot_circle_o),
+            title: Text(succes[index]),
+            subtitle: Text(descriptionSucces[index])),
+      );
+    },
+  );
 }
 
 class _PointsState extends State<Points> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
+        body: Padding(
+      padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
+      child: Stack(
         children: <Widget>[
-          SizedBox(height: 25.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text(
-                "Historique",
-                style: TextStyle(
-                  fontSize: 63,
-                  fontWeight: FontWeight.w900,
-                ),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text(
-                "des points",
-                style: TextStyle(
-                  fontSize: 63,
-                  fontWeight: FontWeight.w900,
-                ),
-              ),
-            ],
-          ),
-          Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            child: ListView.builder(
-              primary: false,
-              shrinkWrap: true,
-              scrollDirection: Axis.vertical,
-              itemCount: getPoints().length,
-              itemBuilder: (BuildContext context, int index) {
-                List<int> bals = getPoints();
-                int bal = bals[index];
-
-                return Container(
-                  height: 120.00,
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      Card(
-                        elevation: 3.0,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25.0)),
-                        color: Colors.white,
-                        child: Container(
-                          padding: const EdgeInsets.all(16.0),
-                          height: MediaQuery.of(context).size.width / 4,
-                          width: MediaQuery.of(context).size.width * 0.95,
-                          child: Card(
-                            child: ListTile(
-                              leading: Icon(LineIcons.dot_circle_o),
-                              title: Text(bal.toString()),
-                              subtitle: Text("date"),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+              Padding(
+                padding: EdgeInsets.fromLTRB(10.0, 25.0, 10.0, 0),
+                child: Text(
+                  "Points",
+                  style: TextStyle(
+                    fontSize: 63,
+                    fontWeight: FontWeight.w900,
                   ),
-                );
-              },
-            ),
+                ),
+              ),
+            ],
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.fromLTRB(10.0, 100.0, 10.0, 0),
+                child: Text(
+                  "Historique des points",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Padding(
+              padding: EdgeInsets.fromLTRB(10.0, 125.0, 10.0, 0),
+              child: _myListViewPoints(context)),
         ],
       ),
-    );
-  }
-
-  List<int> getPoints() {
-    return [1, 2, 3, 4, 5];
+    ));
   }
 }
