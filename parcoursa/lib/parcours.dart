@@ -1,73 +1,108 @@
-import 'package:parcoursa/Classes/ChargeurDeDonne/DebugChargeur.dart';
+
 //import 'package:parcoursa/parcour.dart';
 
-var debug = DebugChargeur();
-var public = debug.getBalisesPublic().first;
-var art = debug.getBalisesArt().first;
+import 'dart:math';
 
+import 'Classes/ChargeurDeDonne/DebugChargeur.dart';
+import 'Interfaces/IChargeDonnees.dart';
+
+var rng = new Random();
+
+IChargeDonnees debug = DebugChargeur();
+var parcRimouski = debug.getBalisesParc(VILLE_SUPPORTE.RIMOUSKI);
+var parcQuebec = debug.getBalisesParc(VILLE_SUPPORTE.QUEBEC);
+var parcMontreal = debug.getBalisesParc(VILLE_SUPPORTE.MONTREAL);
+
+var artRimouski = debug.getBalisesArt(VILLE_SUPPORTE.RIMOUSKI);
+//var artQuebec = debug.getBalisesArt(VILLE_SUPPORTE.QUEBEC);
+var artMontreal = debug.getBalisesArt(VILLE_SUPPORTE.MONTREAL);
+
+var publicRimouski = debug.getBalisesPublic(VILLE_SUPPORTE.RIMOUSKI);
+var publicQuebec = debug.getBalisesPublic(VILLE_SUPPORTE.QUEBEC);
+var publicMontreal = debug.getBalisesPublic(VILLE_SUPPORTE.MONTREAL); 
 
 List parcours = [
+/*
   {
-    "img": public.urlImage,
-    "title": public.nomBalise,
-    "address": public.description,
-    "rating": "56",
-    "nbrBalise": debug.getBalisesPublic().length
+    "img": ,
+    "title": ,
+    "address": ,
+    "rating": (rng.nextInt(100) + 25).toString(),
+    "nbrBalise": 
+  },*/
+  
+  {
+    "img": "assets/profil_1.jpg",
+    "title": "meuh",
+    "address": "huvdsi",
+    "rating": "48",
+    "nbrBalise": 6
   },
   {
-    "img": art.urlImage,
-    "title": art.nomBalise,
-    "address": art.description,
-    "rating": "97",
-    "nbrBalise": debug.getBalisesArt().length
+    "img": parcRimouski.first.urlImage.toString(),
+    "title": parcRimouski.first.nomBalise,
+    "address": parcRimouski.first.description,
+    "rating": (rng.nextInt(100) + 25).toString(),
+    "nbrBalise": parcRimouski.length
   },
   {
-    "img": "assets/statue_3.jpg",
-    "title": "Happy Jones",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
-    "rating": "44",
-    "nbrBalise": 4
+    "img": artRimouski.first.urlImage.toString(),
+    "title": artRimouski.first.nomBalise,
+    "address": artRimouski.first.description,
+    "rating": (rng.nextInt(100) + 25).toString(),
+    "nbrBalise": artRimouski.length
   },
   {
-    "img": "assets/statue_4.jpg",
-    "title": "Uncle Boons",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
-    "rating": "50",
-    "nbrBalise": 3
+    "img": publicRimouski.first.urlImage.toString(),
+    "title": publicRimouski.first.nomBalise,
+    "address": publicRimouski.first.description,
+    "rating": (rng.nextInt(100) + 25).toString(),
+    "nbrBalise": publicRimouski.length
+  },
+
+  
+  {
+    "img": parcQuebec.first.urlImage.toString(),
+    "title": parcQuebec.first.nomBalise,
+    "address": parcQuebec.first.description,
+    "rating": (rng.nextInt(100) + 25).toString(),
+    "nbrBalise": parcQuebec.length
+  },/*
+  {
+    "img": artQuebec.first.urlImage.toString(),
+    "title": artQuebec.first.nomBalise,
+    "address": artQuebec.first.description,
+    "rating": (rng.nextInt(100) + 25).toString(),
+    "nbrBalise": artQuebec.length
+  },*/
+  {
+    "img": publicQuebec.first.urlImage.toString(),
+    "title": publicQuebec.first.nomBalise,
+    "address": publicQuebec.first.description,
+    "rating": (rng.nextInt(100) + 25).toString(),
+    "nbrBalise": publicQuebec.length
+  },
+
+  
+  {
+    "img": parcMontreal.first.urlImage.toString(),
+    "title": parcMontreal.first.nomBalise,
+    "address": parcMontreal.first.description,
+    "rating": (rng.nextInt(100) + 25).toString(),
+    "nbrBalise": parcMontreal.length
   },
   {
-    "img": "assets/chat.jpg",
-    "title": "Happy Jones",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
-    "rating": "93",
-    "nbrBalise": 10
+    "img": artMontreal.first.urlImage.toString(),
+    "title": artMontreal.first.nomBalise,
+    "address": artMontreal.first.description,
+    "rating": (rng.nextInt(100) + 25).toString(),
+    "nbrBalise": artMontreal.length
   },
   {
-    "img": "assets/chat.jpg",
-    "title": "Happy Jones",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
-    "rating": "18",
-    "nbrBalise": 5
-  },
-  {
-    "img": "assets/chat.jpg",
-    "title": "Happy Jones",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
-    "rating": "23",
-    "nbrBalise": 8
-  },
-  {
-    "img": "assets/chat.jpg",
-    "title": "Happy Jones",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
-    "rating": "40",
-    "nbrBalise": 7
-  },
-  {
-    "img": "assets/chat.jpg",
-    "title": "Happy Jones",
-    "address": "1278 Loving Acres RoadKansas City, MO 64110",
-    "rating": "45",
-    "nbrBalise": 3
-  }
+    "img": publicMontreal.first.urlImage.toString(),
+    "title": publicMontreal.first.nomBalise,
+    "address": publicMontreal.first.description,
+    "rating": (rng.nextInt(100) + 25).toString(),
+    "nbrBalise": publicMontreal.length
+  },//*/
 ];
