@@ -10,7 +10,7 @@ class Trending extends StatefulWidget {
   @override
   _TrendingState createState() => _TrendingState();
 }
-
+/*
 Widget _buildContainer() {
   return Material(
     color: Colors.blue,
@@ -19,7 +19,7 @@ Widget _buildContainer() {
       child: Container(height: 200, width: 200),
     ),
   );
-}
+}*/
 
 class _TrendingState extends State<Trending> {
 

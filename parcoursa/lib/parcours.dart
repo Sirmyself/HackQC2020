@@ -1,5 +1,5 @@
 import 'package:parcoursa/Classes/ChargeurDeDonne/DebugChargeur.dart';
-import 'package:parcoursa/parcour.dart';
+//import 'package:parcoursa/parcour.dart';
 
 var debug = DebugChargeur();
 var public = debug.getBalisesPublic().first;
