@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
 
     Position position = await geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
     balise = GeoHelper.getBaliseFromPoint(
-        position.latitude, position.longitude, 0.01);
+        position.latitude, position.longitude, 0.1);
 
     if (balise != null) {
 
