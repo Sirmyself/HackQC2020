@@ -152,16 +152,21 @@ class _ParcourState extends State<Parcour> {
                   child: Container(
                     height: MediaQuery.of(context).size.width / 3,
                     width: MediaQuery.of(context).size.width / 3,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        Icon(
-                          LineIcons.play_circle,
-                          color: Colors.white,
-                          size: 65,
-                        ),
-                      ],
-                    ),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/navigationparcours');
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Icon(
+                            LineIcons.play_circle,
+                            color: Colors.white,
+                            size: 65,
+                          ),
+                        ],
+                      ),
+                    )
                   ),
                 ),
               ],
