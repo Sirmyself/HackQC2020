@@ -245,6 +245,7 @@ class _TrendingState extends State<Trending> {
                       title: parcour["title"],
                       address: parcour["address"],
                       rating: parcour["rating"],
+                      nbrBalise: parcour["nbrBalise"],
                     ),
                   ),
                 );
